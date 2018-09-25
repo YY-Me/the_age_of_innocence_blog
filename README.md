@@ -40,7 +40,7 @@
 
 ![后台登录](https://images.gitee.com/uploads/images/2018/0925/164958_dc565d88_1559021.png "FireShot Capture 17 - 偶尔有点困-后台登录 - http___www.bblog.vip_admin_login.html.png")
 
-
+![输入图片说明](https://images.gitee.com/uploads/images/2018/0925/171918_8e58f0d7_1559021.png "FireShot Capture 18 - 纯真年代-个人博客 - http___www.bblog.vip_.png")
 
 
 #### 码云特技
