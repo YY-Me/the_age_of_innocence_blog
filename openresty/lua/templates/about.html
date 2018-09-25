@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>偶尔有点困-关于</title>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="bookmark" href="/favicon.ico" />
+		<link rel="stylesheet" href="../css/layui.css" />
+		<link rel="stylesheet" href="../css/web/common.css" />
+		<link rel="stylesheet" href="../css/web/about.css" />
+	</head>
+
+	<body>
+		<header class="myheader animated top">
+			<!-- 底部信息 -->
+			{(header_main.html)}
+		</header>
+		<div class="content">
+			<!-- 关于 -->
+			<div class="layui-container mycontent">
+				<div class="layui-row">
+					<div class="layui-col-md12 layui-col-sm12 layui-col-xs12 content-left">
+						<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+							<legend><strong>关于博客</strong></legend>
+						</fieldset>
+						<div class="about">
+							<p class="title">
+								一款JAVA的个人博客，记录学习、生活、人生路
+							</p>
+							<p class="yunxing">
+								<span class="show-title">码云</span>
+								<span class="jiesao">
+									<a href="https://gitee.com/yy1122/the_age_of_innocence_blog.git" target="_blank">项目直达车</a>
+								</span>
+								<span class="show-title">博客前台</span>
+								<span class="jiesao">
+									采用Layui开发，网上冲浪的时候看到了layui，感觉不错。博客也参考了大佬们的案例，利用OpenResty页面渲染、与后端数据交互等
+								</span>
+								<span class="show-title">博客后台</span>
+								<span class="jiesao">
+									采用springcloud搭建，部署的目前是注册中心、路由中心、web端，后面看情况也可以把后台的一些给运行了，主要是内存不够。
+									采用spring boot开发，Oauth2验证鉴权，json进行交互，redis缓存，Restful接口风格。
+								</span>
+								<span class="show-title">后端UI</span>
+								<span class="jiesao">
+									也是采用的Layui，希望layui的2.x的富文本编辑器早点出来，目前用的是WangEditor。我前后台的一些js写得没那些人那么高端，大家看到了别笑
+								</span>
+							</p>
+							<p class="time">本站已运行：<span id="yunxing"></span></p>
+							<strong style="position: absolute;bottom: 0;left: 0;right: 0;text-align: center;line-height: 30px;">The End</strong>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 底部信息 -->
+		<footer class="footer">
+			<div class="footavatar">
+				<img src="http://www.bblog.vip/images/my/login.jpg" class="footphoto">
+				<ul class="footinfo">
+					<p class="fname">
+						<a href="/dancesmile">偶尔有点困</a>
+					</p>
+					<p class="finfo">性别：^_^ 年龄：^_^岁</p>
+					<p>现居：重庆</p>
+				</ul>
+			</div>
+			<div class="info">
+				<p>承认现实生活中的不足之处，并通过自己的努力去弥补这种不足</p>
+				<span>
+										<a>© 2018 纯真年代-博客</a>
+									</span>
+				<span>
+										<a href="http://www.miitbeian.gov.cn" target="_blank">渝ICP备17007479号-2</a>
+									</span>
+				<span class="no-right-border">
+								<a href="../admin/login.html" target="_blank">后台登录</a>
+									</span>
+				<span class="layui-clear no-right-border"></span>
+			</div>
+		</footer>
+		<ul class="layui-fixbar">
+			<li class="layui-icon layui-fixbar-top" lay-type="top" style="display: list-item;">&#xe604;</li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="../layui.js"></script>
+	<script type="text/javascript" src="../lay/system/public.js"></script>
+	<script type="text/javascript" src="../lay/system/web/about.js"></script>
+
+</html>

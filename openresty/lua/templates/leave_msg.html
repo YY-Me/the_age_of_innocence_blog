@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>偶尔有点困-留言</title>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="bookmark" href="/favicon.ico" />
+		<link rel="stylesheet" href="../css/layui.css" />
+		<link rel="stylesheet" href="../css/web/common.css" />
+		<link rel="stylesheet" href="../css/web/article_detail.css" />
+	</head>
+
+	<body>
+		<header class="myheader animated top">
+			<!-- 底部信息 -->
+			{(header_main.html)}
+		</header>
+		<div class="content">
+			<!-- 帖子 -->
+			<div class="layui-container mycontent">
+				<div class="layui-row">
+					<div class="layui-col-md8 layui-col-sm8 layui-col-xs12 content-left">
+						<p class="intitle"><b>您现在的位置是：</b>
+							<a href="/">首页</a>
+							>
+							<a href="/leave_msg">留言区</a>
+						</p>
+						<hr class="layui-bg-red">
+						<div class="article_detail">
+							<!-- 评论模块 -->
+							<div id="comment_editor" class="comment_editor">
+								<textarea placeholder="留言内容" id="article_editor" name="content" class="layui-textarea  article_editor" style=" height: 150px; "></textarea>
+							</div>
+							<textarea id="uid" style="display: none;"></textarea>
+							<button class="layui-btn layui-btn-danger layui-submit layui-unselect">提交留言</button>
+							<a class="layui-clear"></a>
+						</div>
+						<!-- 评论回复 -->
+						<strong class="layui-unselect">全部留言</strong>
+						<hr class="layui-bg-red">
+						<!-- 评论回复列表 -->
+						<div id="comment" class="comment">
+							<ul id="comment_list">
+								
+							</ul>
+						</div>
+					</div>
+					<!-- 右边模块 -->
+					{(right_aside.html)}
+				</div>
+			</div>
+		</div>
+		<!-- 底部信息 -->
+		{(footer.html)}
+		<ul class="layui-fixbar">
+			<li class="layui-icon layui-fixbar-top" lay-type="top" style="display: list-item;">&#xe604;</li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="../layui.js"></script>
+	<script type="text/javascript" src="../lay/system/public.js"></script>
+	<script type="text/javascript" src="../lay/system/web/leave_msg.js"></script>
+
+</html>

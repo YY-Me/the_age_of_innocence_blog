@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>纯真年代-个人博客</title>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="bookmark" href="/favicon.ico" />
+		<link rel="stylesheet" href="../css/layui.css" />
+		<link rel="stylesheet" href="../css/web/login.css" />
+		<link rel="stylesheet" href="../css/web/index.css" />
+	</head>
+
+	<body>
+		<header class="myheader animated top is_top_true">
+			<!-- 底部信息 -->
+			{(header_main.html)}
+		</header>
+		<!-- 轮播图 -->
+		<div class="scorllimgs">
+			{% 
+				math.randomseed(tostring(ngx.now()):reverse():sub(1, 6))
+				local imgsnum=math.random(1,50)
+			%}
+			<img src="http://www.bblog.vip/images/background/background{*imgsnum*}.jpg" />
+		</div>
+		<div class="content">
+			<!-- 每日语录 -->
+			<div class="layui-container quoteoftheday layui-anim layui-anim-fadein">
+				<span class="quotetitle layui-unselect">每日语录：</span>
+				<i id="quoterefresh" class="layui-icon layui-icon-face-smile layui-unselect"></i>
+				<a class="quotecontent">不必仰望别人，自己亦是风景。——佐手那回忆</a>
+			</div>
+			<!-- 帖子 -->
+			<div class="layui-container mycontent">
+				<div class="layui-row">
+					<div class="layui-col-md8 layui-col-sm8 layui-col-xs12 content-left">
+						<div class="infomation">
+							{% if classifyName then %}
+								<p><a href="/" title="首页"><i class="layui-icon layui-icon-home"></i></a> <b id="classifyName">{* classifyName *}</b></p>
+							{%end%}
+						</div>
+						<ul class="post-list">
+                            {% if table.getn(articles.list)==0 then %}
+							<div class="layadmin-tips">
+								<i class="layui-icon layui-icon-face-surprised"></i>
+								<i class="layui-icon layui-icon-face-surprised"></i>
+								<i class="layui-icon layui-icon-face-surprised"></i>
+								<div class="layui-text">
+							        <span>该分类标签暂无任何文章</span> <a href="/">返回首页>>></a>
+								</div>
+							</div>    
+                            {% else %}
+                                {% for i = 1, #articles.list do local t = articles.list[i] %}
+                                <li class="post-one">
+                                    <span class="label layui-unselect"><c>学习</c></span>
+                                    <h3 class="title animated"><a class="animated" title="{* t.title *}" href="/article_detail/{* t.id *}">{* t.title *}</a></h3>
+                                    <div class="article_lable_show layui-unselect">
+                                        {% for j, v in ipairs(t.lable) do %}
+                                            <span class="animated3" style="background-color: {* v.color *};">{* v.name *}</span>
+                                        {% end %}
+                                    </div>
+                                    <div class="post-desc">
+                                        <div href="" class="summaryimg">
+                                            <a href="/article_detail/{* t.id *}" title="{* t.title *}"><img title="{* t.title *}" alt="{* t.title *}" src="{* t.summaryimg *}" /></a>
+                                        </div>
+                                        <p class="post-desc-txt">{* t.summary *}</p>
+                                        <div class="layui-clear"></div>
+                                    </div>
+                                    <div class="post-info">
+                                        <p class="post-info-left">
+                                            <a href="javascript:;">
+                                                <img title="{* t.nickname *}" src="{* t.headimgurl *}" />
+                                                <span class="author">{* t.nickname *}</span>
+                                            </a>
+                                        </p>
+                                        <p class="post-info-right layui-unselect">
+                                            <a><i class="layui-icon">&#xe705;</i><span class="num">{* t.pv *}</span></a>
+                                            <a><i class="layui-icon">&#xe637;</i><span class="time">{* t.createtime *}</span></a>
+                                        </p>
+                                    </div>
+                                </li>
+                                {% end %}
+                            {% end %}
+                            
+						</ul>
+						<!-- 分页 -->
+						<ul class="pagination">
+							{% if articles.hasPreviousPage then %}
+								<li class="china"><a title="上一页" href="/index?page={* articles.pageNum - 1 *}"><i class="layui-icon layui-icon-prev"></i> 上一页</a></li>
+							{% end %}
+							
+							{% for i=articles.pageNum-4,articles.pageNum do %}
+								{% if i~=articles.pageNum and i>0 then %}
+									<li><a href="index?page={*i*}">{*i*}</a></li>
+								{% end %}
+							{% end %}
+							
+							<li><a class="active" href="javascript:;">{* articles.pageNum *}</a></li>
+							
+							{% for i=articles.pageNum,articles.pageNum+4 do %}
+								{% if i~=articles.pageNum and i<=articles.pages then %}
+									<li><a href="/index?page={*i*}">{*i*}</a></li>
+								{% end %}
+							{% end %}
+							
+							{% if articles.hasNextPage then %}
+								<li class="china"><a title="下一页" href="/index?page={* articles.pageNum + 1 *}">下一页 <i class="layui-icon layui-icon-next"></i></a></li>
+							{% end %}
+							<li class="info">
+								共<b>{* articles.pages *}</b>页<b>{* articles.total *}</b>条数据
+							</li>
+						</ul>
+					</div>
+					<!-- 右边模块 -->
+					{(right_aside.html)}
+				</div>
+			</div>
+		</div>
+		<!-- 底部信息 -->
+		{(footer.html)}
+		<ul class="layui-fixbar">
+			<li class="layui-icon layui-fixbar-top" lay-type="top" style="display: list-item;">&#xe604;</li>
+		</ul>
+		<!--<div id="music163" class="animated">
+			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=383785579&auto=0&height=430"></iframe>
+			<i class="layui-icon">&#xe6fc;</i>
+		</div>-->
+	</body>
+	<script type="text/javascript" src="../layui.js"></script>
+	<script type="text/javascript" src="../lay/system/public.js" ></script>
+	<script type="text/javascript" src="../lay/system/web/web.js"></script>
+	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"7","bdPos":"right","bdTop":"179.5"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+</html>

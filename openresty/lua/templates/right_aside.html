@@ -1,0 +1,145 @@
+<div class="layui-col-md4 layui-col-sm4 layui-col-xs12 content-right">
+	<div>
+		{% if(has_right_aside) then %}
+		<!-- 文章标签 -->
+		<div class="grid" id="grid">
+			<h3></h3>
+			<div class="content">
+				<div class="myquote animated layui-unselect">
+					没有什么比年轻时候的贫穷更理直气壮的
+				</div>
+				<span class="layui-col-md4 layui-col-sm4 layui-col-xs4">
+					<a href="/article_list?type=index" atitle="文章">
+						<i class="layui-icon layui-bg-orange">&#xe60a;</i>
+						<b>{* blogArticleClassifyLables[3].num *}</b>
+						<b class="txt">文章</b>
+					</a>
+				</span>
+				<span class="layui-col-md4 layui-col-sm4 layui-col-xs4">
+					<a href="#right_fenlei" atitle="分类">
+						<i class="layui-icon layui-bg-green">&#xe61d;</i>
+						<b>{* blogArticleClassifyLables[2].num *}</b>
+						<b class="txt">分类</b>
+					</a>
+				</span>
+				<span class="layui-col-md4 layui-col-sm4 layui-col-xs4 no-right-border">
+					<a href="#right_labels" atitle="标签">
+						<i class="layui-icon layui-bg-cyan">&#xe64d;</i>
+						<b>{* blogArticleClassifyLables[1].num *}</b>
+						<b class="txt">标签</b>
+					</a>
+				</span>
+				<span class="layui-col-md4 layui-col-sm4 layui-col-xs4">
+					<a href="#foot_recentuser" atitle="访客">
+						<i class="layui-icon layui-bg-blue layui-icon-user"></i>
+						<b>{* blogArticleClassifyLables[4].num *}</b>
+						<b class="txt">访客</b>
+					</a>
+				</span>
+				<span class="layui-col-md4 layui-col-sm4 layui-col-xs4">
+					<a href="/leave_msg?type=index" atitle="留言">
+						<i class="layui-icon" style="background: #7266BA;">&#xe611;</i>
+						<b>{* blogArticleClassifyLables[5].num *}</b>
+						<b class="txt">留言</b>
+					</a>
+				</span>
+				<span class="layui-col-md4 layui-col-sm4 layui-col-xs4 no-right-border">
+					<a href="#right_youzan" atitle="友站">
+						<i class="layui-icon" style="background: #66DAFB;">&#xe650;</i>
+						<b>0</b>
+						<b class="txt">友站</b>
+					</a>
+				</span>
+				<span class="layui-clear no-right-border"></span>
+			</div>
+		</div>
+		{% end %}
+		<!-- 文章标签 -->
+		<div class="flag" id="right_labels">
+			<h3 class="layui-unselect">文章标签</h3>
+			<div class="content">
+				{% for i = 1, #blogArticleLables do local t = blogArticleLables[i] %}
+					<a class="animated3" href="/label/{* t.id *}" title="{* t.name *}" style="background-color: {* t.color *};">{* t.name *}</a>
+				{% end %}
+			</div>
+		</div>
+		<!-- 文章分类 -->
+		<div class="classify" id="right_fenlei">
+			<h3 class="layui-unselect">文章分类</h3>
+			<div class="content">
+				{% for i = 1, #classifys do local t = classifys[i] %}
+				<a href="/classify/{* t.classifyid *}" title="{* t.name *}">{* t.name *} ({* t.num *})</a>
+				{% end %}
+			</div>
+		</div>
+		<!-- 热门文章，后台通过点击量 -->
+		<div class="hot-post">
+			<h3 class="layui-unselect">热门文章</h3>
+			<div class="content">
+				<ul>
+					{% for i = 1, #hotBlogArticles do local t = hotBlogArticles[i] %}
+					<li class="animated8">
+						<a href="/article_detail/{* t.id *}" title="{* t.title *}" target="_blank" class="thumbnail-link">
+							<img class="thumbnailside" title="{* t.title *}" alt="{* t.title *}" src="{* t.summaryimg *}" width="46" height="46" style="overflow: hidden;" />
+						</a>
+						<div class="right-box">
+							<h4 class="title">
+									<a href="/article_detail/{* t.id *}" title="{* t.title *}">{* t.title *}</a>
+								</h4>
+							<p class="time">
+								<i class="layui-icon layui-icon-date"></i>
+								<a>{* t.createtime *}</a>
+							</p>
+							<p class="view">
+								<i class="layui-icon layui-icon-read"></i>
+								<a>{* t.pv *}</a>
+							</p>
+						</div>
+					</li>
+					{% end %}
+				</ul>
+			</div>
+		</div>
+		<!-- 热门推荐文章，后台设置 -->
+		<div class="re-post" id="right_youzan">
+			<h3 class="layui-unselect">友站连接</h3>
+			<div class="content">
+				<ol>
+					<div class="layui-row">
+						<div class="layui-col-md6 layui-col-sm6 layui-col-xs6">
+							<!--<li>
+								<a target="_blank" href="javascript:;">百度</a>
+							</li>-->
+						</div>
+						<div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+							<li>
+								<a target="_blank" href="mailto:1396513066@qq.com">发邮件给1396513066@qq.com</a>
+							</li>
+						</div>
+					</div>
+				</ol>
+			</div>
+		</div>
+		<!-- 热门推荐文章，后台设置 -->
+		<div class="re-post">
+			<h3 class="layui-unselect">活动</h3>
+			<div class="content">
+				<ol>
+					<div class="layui-row">
+						<div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+							<li>
+								<a target="_blank" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=7ulkk1gd">阿里云最高￥1000云产品通用代金券</a>
+							</li>
+							<li>
+								<a target="_blank" href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=7ulkk1gd">ECS云服务器2折起，优惠配置多选1</a>
+							</li>
+							<li>
+								<a target="_blank" href="https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=7ulkk1gd">企业级ECS云服务器特惠</a>
+							</li>
+						</div>
+					</div>
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
