@@ -13,6 +13,8 @@
 后台账号:guest
 后台密码:guest
 
+![输入图片说明](https://images.gitee.com/uploads/images/2018/0925/224311_21e122ec_1559021.png "]Z112~7D]AB2O%)[YNS0R20.png")
+
 
 ![发布文章](https://images.gitee.com/uploads/images/2018/0925/164431_46fd6b18_1559021.png "FireShot Capture 5 - 纯真年代-后台管理系统 - http___www.bblog.vip_admin_index.html.png")
 
