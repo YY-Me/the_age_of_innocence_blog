@@ -26,7 +26,9 @@ local is_debug = true -- 调试阶段，会输出错误信息到页面上
 if ret == false then
     if is_debug then
         ngx.status = 404
-        ngx.say("<p style='font-size: 16px'>Error: <span style='color:red'>" .. ctrl .. "</span> module not found !</p>")
+        local errors={err=ctrl}
+        template.render('404.html', errors)
+        --ngx.say("<p style='font-size: 16px'>Error: <span style='color:red'>" .. ctrl .. "</span> module not found !</p>")
     end
     ngx.exit(404)
 end
@@ -36,7 +38,9 @@ local req_method = ctrl[method]
 if req_method == nil then
     if is_debug then
         ngx.status = 404
-        ngx.say("<p style='font-size: 16px'>Error: <span style='color:red'>" .. method .. "()</span> method not found in <span style='color:red'>" .. moduleName .. "</span> lua module !</p>")
+        local errors={err=method..moduleName}
+        template.render('404.html', errors)
+        --ngx.say("<p style='font-size: 16px'>Error: <span style='color:red'>" .. method .. "()</span> method not found in <span style='color:red'>" .. moduleName .. "</span> lua module !</p>")
     end
     ngx.exit(404)
 end
