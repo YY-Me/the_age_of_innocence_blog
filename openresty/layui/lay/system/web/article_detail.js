@@ -1,17 +1,11 @@
 layui.config({
 	base: '../lay/system/'
-}).use(['layer', 'element', 'edit', 'flow','code'], function() {
+}).use(['layer', 'element', 'edit', 'flow'], function() {
 	var element = layui.element,
 		layer = layui.layer,
 		$ = layui.$,
 		edit = layui.edit,
 		flow = layui.flow;
-	//code修饰
-	layui.code({
-	  elem: 'code',
-	  title	:'纯真年代',
-	  height: '500px'
-	});
 	//建立编辑器
 	edit.layEditor({
 		elem: '.article_editor'
@@ -35,8 +29,8 @@ layui.config({
 			data.parentId = $.trim(parentId);
 			data.toId = $.trim(toId);
 			var content = $.trim($('.article_editor').val());
-			if(content.length < 5) {
-				layer.msg('回复不能小于5个非空格字符', {
+			if(content.length < 3) {
+				layer.msg('回复不能小于3个非空格字符', {
 					icon: 2,
 					time: 2000
 				});
@@ -71,7 +65,7 @@ layui.config({
 			isAuto: false,
 			done: function(page, next) {
 				var lis = [];
-				$.get(IP+'/api/blog-web/article/comment/'+$.trim($('#article_id').attr('article_id'))+'?page=' + page, function(res) {
+				$.get('/api/blog-web/article/comment/'+$.trim($('#article_id').attr('article_id'))+'?page=' + page, function(res) {
 				//$.get('http://www.bblog.vip/json/comment.json?page=' + page, function(res) {
 					layer.closeAll('loading');
 					var html = pHtml(res.data,false)

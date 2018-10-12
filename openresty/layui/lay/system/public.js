@@ -93,7 +93,7 @@ layui.use(['layer'], function() {
 					msg = "链接超时";
 				} else {
 					var response = JSON.parse(xhr.responseText);
-					msg = response.msg;
+					msg = response.message;
 					if(response.code == 401) {
 						localStorage.removeItem("token");
 					}
@@ -178,7 +178,7 @@ layui.use(['layer'], function() {
 		}, function() {
 			//确定退出
 			$.ajax({
-				url: IP + "/api/blog-web/oauth2/qqLogOut",
+				url: "/api/blog-web/oauth2/qqLogOut",
 				type: 'POST',
 				contentType: "application/x-www-form-urlencoded",
 				success: function(result, status, xhr) {

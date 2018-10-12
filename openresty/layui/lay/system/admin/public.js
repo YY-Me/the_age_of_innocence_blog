@@ -1,4 +1,4 @@
-var IP = "http://www.bblog.vip";
+var IP = "https://www.bblog.vip";
 var jQuery;
 layui.use(['layer'], function() {
 	var $ = layui.$,

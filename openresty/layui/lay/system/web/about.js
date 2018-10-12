@@ -4,45 +4,24 @@ layui.use(['layer', 'element'], function() {
 		$ = layui.$;
 	$(function() {
 		//网站运行时间
-
-		$('#yunxing').text(timeDifc("2018-9-24 00:00:00", getNowFormatDate()))
-		//获取当前的日期时间 格式“yyyy-MM-dd HH:MM:SS”
-		function getNowFormatDate() {
-			var date = new Date();
-			var seperator1 = "-";
-			var seperator2 = ":";
-			var month = date.getMonth() + 1;
-			var strDate = date.getDate();
-			if(month >= 1 && month <= 9) {
-				month = "0" + month;
-			}
-			if(strDate >= 0 && strDate <= 9) {
-				strDate = "0" + strDate;
-			}
-			var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate +
-				" " + date.getHours() + seperator2 + date.getMinutes() +
-				seperator2 + date.getSeconds();
-			return currentdate;
+		span_dt_dt=document.getElementById("yunxing")
+		function show_date_time() {
+			setTimeout(show_date_time,1000)
+			BirthDay = new Date("09/24/2018 00:00:00");
+			today = new Date();
+			timeold = (today.getTime() - BirthDay.getTime());
+			sectimeold = timeold / 1000;
+			secondsold = Math.floor(sectimeold);
+			msPerDay = 24 * 60 * 60 * 1000;
+			e_daysold = timeold / msPerDay;
+			daysold = Math.floor(e_daysold);
+			e_hrsold = (e_daysold - daysold) * 24;
+			hrsold = Math.floor(e_hrsold);
+			e_minsold = (e_hrsold - hrsold) * 60;
+			minsold = Math.floor((e_hrsold - hrsold) * 60);
+			seconds = Math.floor((e_minsold - minsold) * 60);
+			span_dt_dt.innerHTML = daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
 		}
-		function timeDifc(start, end) {
-			//是365天:31536000
-			var starts = new Date(start),
-				ends = new Date(end),
-				message = '';
-			var times = ends.getTime() - starts.getTime();
-			console.log(times)
-			if(times < 0) return message = "现在的时间小于以前的时间!";
-			if(times < 1) return message = "刚刚";
-			times = parseInt(times / 1000)
-			var year = parseInt(times / 31536000)
-			message += year > 0 ? year + "年" : "";
-			var month = parseInt((times - (year * 31536000)) / 2592000)
-			message += month > 0 ? month + "个月" : "";
-			var day = parseInt((times - (year * 31536000) - (month * 2592000)) / 86400)
-			message += day > 0 ? day + "天" : "";
-			var hour = parseInt((times - (year * 31536000) - (month * 2592000) - (day * 86400)) / 3600)
-			message += hour > 0 ? hour + "小时" : "";
-			return message;
-		};
+		show_date_time();
 	})
 });

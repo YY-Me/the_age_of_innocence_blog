@@ -28,8 +28,8 @@ layui.config({
 			data.parentId = $.trim(parentId);
 			data.toId = $.trim(toId);
 			var content = $.trim($('.article_editor').val());
-			if(content.length < 5) {
-				layer.msg('留言内容不能小于5个非空格字符', {
+			if(content.length < 3) {
+				layer.msg('留言内容不能小于3个非空格字符', {
 					icon: 2,
 					time: 2000
 				});
@@ -43,7 +43,7 @@ layui.config({
 				$(".layui-submit").attr('disabled', false);
 			}, 10000);
 			$.ajax({
-				url: IP+"/api/blog-web/leaveMsg",
+				url: "/api/blog-web/leaveMsg",
 				type:'POST',
 				data: JSON.stringify(data),
 				success: function(result, status, xhr) {
@@ -64,7 +64,7 @@ layui.config({
 			isAuto: false,
 			done: function(page, next) {
 				var lis = [];
-				$.get(IP+'/api/blog-web/leaveMsg/list?page=' + page, function(res) {
+				$.get('/api/blog-web/leaveMsg/list?page=' + page, function(res) {
 					layer.closeAll('loading');
 					var html = pHtml(res.data,false)
 					lis.push(html);
@@ -116,7 +116,7 @@ layui.config({
 			toId=toName.attr('uid')
 			$('#article_editor').val(text)
 			location.hash="nextinfo"
-			//$('#article_editor')[0].focus()
+			$('#article_editor')[0].focus()
 			$('html , body').animate({scrollTop: 0},0);
 		})
 
