@@ -1,5 +1,7 @@
 # 纯真年代博客
 
+ **PS：layui/web下public-img-webm.html、user-area-view.html是和服务器同步的，其他的我都是用的模板渲染，在lua/templates下面** 
+
 #### 项目介绍
 纯真年代博客
 
