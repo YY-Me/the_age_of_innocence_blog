@@ -30,9 +30,12 @@
 								一款JAVA的个人博客，记录学习、生活、人生路
 							</p>
 							<p class="yunxing">
-								<span class="show-title">码云</span>
+								<span class="show-title">快速链接</span>
 								<span class="jiesao">
-									<a href="https://gitee.com/yy1122/the_age_of_innocence_blog.git" target="_blank">项目直达车</a>
+									<a href="https://gitee.com/yy1122/the_age_of_innocence_blog.git" target="_blank" style="color:red;text-decoration:underline;">码云项目直达车(最新时间:2018-10-13 00:00)</a>
+									&nbsp;&nbsp;<a href="../admin/login.html" target="_blank" style="color:red;text-decoration:underline;">后台直达车</a>
+									&nbsp;&nbsp;<a href="https://fly.layui.com/case/2018/" target="_blank" style="color:red;text-decoration:underline;">Layui案例直达车</a>
+									&nbsp;&nbsp;<a href="https://www.bblog.vip/web/public-img-webm.html" target="_blank" style="color:red;text-decoration:underline;">本站静态资源</a>
 								</span>
 								<span class="show-title">博客前台</span>
 								<span class="jiesao">
@@ -40,28 +43,33 @@
 								</span>
 								<span class="show-title">博客后台</span>
 								<span class="jiesao">
-									采用springcloud搭建，部署的目前是注册中心、路由中心、web端，后面看情况也可以把后台的一些给运行了，主要是内存不够。
 									采用spring boot开发，Oauth2验证鉴权，json进行交互，redis缓存，Restful接口风格。
+								</span>
+								<span class="jiesao">
+									目前阿里云部署的是 注册中心、路由中心、WEB前端，加上mysql
+                                 </span>
+								<span class="jiesao">
+                                    腾讯云部署的是 认证中心，后台管理中心（其实块可以分开，后台管理和用户中心），文件中心。像监控中心、配置中心...没部署（占内存）
 								</span>
 								<span class="show-title">后端UI</span>
 								<span class="jiesao">
 									也是采用的Layui，希望layui的2.x的富文本编辑器早点出来，目前用的是WangEditor。我前后台的一些js写得没那些人那么高端，大家看到了别笑
 								</span>
 							</p>
-							<p class="time">本站已运行：<span id="yunxing"></span></p>
-							<strong style="position: absolute;bottom: 0;left: 0;right: 0;text-align: center;line-height: 30px;">The End</strong>
-						</div>
+							<p class="time">本站已苟活：<span id="yunxing"></span></p>
+							<strong style="position: absolute;bottom: 0;left: 0;right: 0;text-align: center;line-height: 30px;">The End</strong>                         
+                        </div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- 底部信息 -->
-		<footer class="footer">
+		<footer class="footer" style="margin-top:40px;">
 			<div class="footavatar">
-				<img src="http://www.bblog.vip/images/my/login.jpg" class="footphoto">
+				<img src="https://www.bblog.vip/images/my/login.jpg" class="footphoto">
 				<ul class="footinfo">
 					<p class="fname">
-						<a href="/dancesmile">偶尔有点困</a>
+						<a href="javascript:;">偶尔有点困</a>
 					</p>
 					<p class="finfo">性别：^_^ 年龄：^_^岁</p>
 					<p>现居：重庆</p>
@@ -86,7 +94,7 @@
 		</ul>
 	</body>
 	<script type="text/javascript" src="../layui.js"></script>
-	<script type="text/javascript" src="../lay/system/public.js"></script>
-	<script type="text/javascript" src="../lay/system/web/about.js"></script>
+	<script type="text/javascript" src="../lay/system/public.js?v=1.0"></script>
+	<script type="text/javascript" src="../lay/system/web/about.js?v=1.0"></script>
 
 </html>

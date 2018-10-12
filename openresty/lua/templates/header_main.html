@@ -38,6 +38,8 @@
 				<a href="javascript:;">实验&nbsp;<i class="layui-icon layui-icon-triangle-d"></i></a>
 				<dl class="layui-nav-child">
 		          <dd><a href="/video" target="view_window">视频解析</a></dd>
+		          <dd><a href="/web/user-area-view.html" target="view_window">简单统计（按天）</a></dd>
+		          <dd><a href="/web/public-img-webm.html" target="view_window">本站静态资源</a></dd>
 		        </dl>
 			</li>
 			<li class="layui-nav-item {% if(is_this_index=='leave_msg') then %} layui-this{%end%}">
@@ -56,7 +58,7 @@
 				</a>
 			</li>
 			<li id="login_no" class="layui-nav-item" style="display: none;">
-				<a onclick="return parent.location.href='http://www.bblog.vip/api/blog-web/oauth2/qqLogin'" href="javascript:;" id="login"><img src="https://triedblog.oss-cn-beijing.aliyuncs.com/my/nologin.png" class="layui-nav-img">QQ登录</a>
+				<a onclick="return parent.location.href='/api/blog-web/oauth2/qqLogin'" href="javascript:;" id="login"><img src="https://triedblog.oss-cn-beijing.aliyuncs.com/my/nologin.png" class="layui-nav-img">QQ登录</a>
 				<!--<dl class="layui-nav-child">
 					<dd>
 						<a href="javascript:;" id="login">立即登录</a>
@@ -69,9 +71,11 @@
 			<li id="login_yes" class="layui-nav-item" style="display: none;">
 				<a><img id="figureurlQq1" class="layui-nav-img"><b id="nickname">您的昵称</b></a>
 				<dl class="layui-nav-child">
+                    <!--
 					<dd>
 						<a href="javascript:;">绑定账号</a>
 					</dd>
+                    -->
 					<dd>
 						<a href="javascript:;" id="login_out">退出</a>
 					</dd>

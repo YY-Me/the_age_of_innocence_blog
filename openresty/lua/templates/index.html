@@ -21,16 +21,22 @@
 		<div class="scorllimgs">
 			{% 
 				math.randomseed(tostring(ngx.now()):reverse():sub(1, 6))
-				local imgsnum=math.random(1,50)
+				local imgsnum=math.random(1,77)
 			%}
-			<img src="http://www.bblog.vip/images/background/background{*imgsnum*}.jpg" />
+			<!--
+            <img src="https://mat1.gtimg.com/news/qq2018/huanq_ten_bg.jpg" style="top:0px;" />
+            -->
+            <!--
+			<img src="/images/background/background{*imgsnum*}.jpg" />
+			-->
+            <img src="https://triedblog.oss-cn-beijing.aliyuncs.com/index_background/background{*imgsnum*}.jpg" />
 		</div>
 		<div class="content">
 			<!-- 每日语录 -->
 			<div class="layui-container quoteoftheday layui-anim layui-anim-fadein">
 				<span class="quotetitle layui-unselect">每日语录：</span>
 				<i id="quoterefresh" class="layui-icon layui-icon-face-smile layui-unselect"></i>
-				<a class="quotecontent">不必仰望别人，自己亦是风景。——佐手那回忆</a>
+				<a class="quotecontent">即使没有成功，也不会带有遗憾，因为曾经付出了...</a>
 			</div>
 			<!-- 帖子 -->
 			<div class="layui-container mycontent">
@@ -129,8 +135,6 @@
 		</div>-->
 	</body>
 	<script type="text/javascript" src="../layui.js"></script>
-	<script type="text/javascript" src="../lay/system/public.js" ></script>
-	<script type="text/javascript" src="../lay/system/web/web.js"></script>
-	<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"7","bdPos":"right","bdTop":"179.5"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-
+	<script type="text/javascript" src="../lay/system/public.js?type=6gh45dy6vbsdf33823fdgs" ></script>
+	<script type="text/javascript" src="../lay/system/web/web.js?type=6gh45dy6vbsdf33823fdgs"></script>
 </html>
