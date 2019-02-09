@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>偶尔有点困-关于</title>
+		<link rel="stylesheet" href="../css/layui.css" />
+		<link rel="stylesheet" href="../css/web/common.css" />
+		<link rel="stylesheet" href="../css/web/about.css" />
+	</head>
+
+	<body>
+		<header class="myheader animated top">
+			<div class="layui-container">
+				<div class="logo">
+					TRIEDBLOG
+				</div>
+				<div class="left">
+					<ul class="layui-nav">
+						<li class="layui-nav-item">
+							<a href="index.html?__hbt=1524650296533">博客首页</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="index.html?__hbt=1524650296533">那年今日</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="about.html?__hbt=1524650296533">实验</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="leave_msg.html?__hbt=1524650296533">留言</a>
+						</li>
+						<li class="layui-nav-item layui-this">
+							<a href="about.html?__hbt=1524650296533">关于</a>
+						</li>
+					</ul>
+				</div>
+				<div class="right">
+					<ul class="layui-nav">
+						<li class="layui-nav-item layui-hide-sm layui-hide-md layui-hide-lg" id="navs">
+							<a>
+								<i class="layui-icon">&#xe65f;</i>
+							</a>
+						</li>
+						<li class="layui-nav-item">
+							<a><img src="../images/my/login.jpg" class="layui-nav-img"></a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="login.html?__hbt=1524650296533">立即登录</a>
+								</dd>
+								<dd>
+									<a href="reg.html?__hbt=1524650296533">点我注册</a>
+								</dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item layui-hide">
+							<a><img src="../images/my/login.jpg" class="layui-nav-img"></a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;">绑定账号</a>
+								</dd>
+								<dd>
+									<a href="javascript:;">退出</a>
+								</dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<div class="content">
+			<!-- 关于 -->
+			<div class="layui-container mycontent">
+				<div class="layui-row">
+					<div class="layui-col-md12 layui-col-sm12 layui-col-xs12 content-left">
+						<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+							<legend><strong>关于博客</strong></legend>
+						</fieldset>
+						<div class="about">
+							<span class="title">
+								一款JAVA的个人博客，记录学习、生活、人生路
+							</span>
+							<span class="yunxing">
+								<p>
+									<span>
+										此项目源码采用spring boot开发，使用spring security进行权限控制。
+									前后端基于json进行交互，接口通过JWT无状态token进行权限校验，
+									使用redis或者数据库进行token缓存，接口完全采用Restful的风格，
+									实现按钮级权限控制，可以作为开发项目的脚手架，做为基础项目。
+									</span>
+								</p>
+								<p class="time">本站已运行：<span id="yunxing"></span></p>
+							<strong style="position: absolute;bottom: 0;left: 0;right: 0;text-align: center;line-height: 30px;">The End</strong>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 底部信息 -->
+		<footer class="footer">
+			<div class="footavatar">
+				<img src="../images/my/s6.jpg" class="footphoto">
+				<ul class="footinfo">
+					<p class="fname">
+						<a href="/dancesmile">偶尔有点困</a>
+					</p>
+					<p class="finfo">性别：^_^ 年龄：^_^岁</p>
+					<p>现居：重庆</p>
+				</ul>
+			</div>
+			<div class="info">
+				<p>承认现实生活中的不足之处，并通过自己的努力去弥补这种不足</p>
+				<span>
+										<a>© 2018 偶尔有点困</a>
+									</span>
+				<span>
+										<a>渝ICP备17007479号-1</a>
+									</span>
+				<span class="no-right-border">
+								<a href="../admin/index.html">后台登录</a>
+									</span>
+				<span class="layui-clear no-right-border"></span>
+			</div>
+		</footer>
+		<ul class="layui-fixbar">
+			<li class="layui-icon layui-fixbar-top" lay-type="top" style="display: list-item;">&#xe604;</li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="../layui.js"></script>
+	<script type="text/javascript" src="../lay/system/public.js"></script>
+	<script type="text/javascript" src="../lay/system/web/about.js"></script>
+
+</html>

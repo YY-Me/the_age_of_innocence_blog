@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>那年今日~{* webBaseInfo.data.sitename *}</title>
+		<meta name="keywords" content="{* webBaseInfo.data.keywords *}" />
+		<meta name="description" content="{* webBaseInfo.data.descript *}" />
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="bookmark" href="/favicon.ico" />
+		<link rel="stylesheet" href="../css/layui.css" />
+		<link rel="stylesheet" href="../css/web/common.css?v=2.0" />
+		<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+		<!--[if lt IE 8]>
+		<script type="text/javascript" src="plugins/ace/js/buttons.html5.min.js" ></script>
+		<script type="text/javascript" src="plugins/ace/js/respond.min.js"></script>
+		<![endif]-->
+		<style>
+			.content{
+				padding-top: 20px;
+                min-height: 450px;
+			}
+			.layui-timeline-axis{
+				color:#FFFFFF;
+				background-color: #DDD6CC;
+			}
+			.layui-timeline-title{
+				display: inline-block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="myheader animated top">
+			<!-- 顶部信息 -->
+			{(header_main.html)}
+		</header>
+		<div class="content">
+			<!-- 帖子 -->
+			<div class="layui-container mycontent">
+				<div class="layui-row">
+					<div class="layui-col-md8 layui-col-sm8 layui-col-xs12 content-left">
+						<ul class="layui-timeline">
+							<li class="layui-timeline-item">
+								<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+								<div class="layui-timeline-content layui-text">
+									<h3 class="layui-timeline-title">10月31日</h3>
+									<span class="layui-badge layui-bg-gray">2018</span>
+									<p>
+										毕业设计任务书下来了，烦<br/>
+										加上漂流的日子，博客更新会变慢
+									</p>
+								</div>
+							</li>
+							<li class="layui-timeline-item">
+								<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+								<div class="layui-timeline-content layui-text">
+									<h3 class="layui-timeline-title">10月24日</h3>
+									<span class="layui-badge layui-bg-gray">2018</span>
+									<p>
+										1024牛逼
+									</p>
+								</div>
+							</li>
+							<li class="layui-timeline-item">
+								<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+								<div class="layui-timeline-content layui-text">
+									<h3 class="layui-timeline-title">9月24日</h3>
+									<span class="layui-badge layui-bg-gray">2018</span>
+									<p>
+										博客上线
+									</p>
+								</div>
+							</li>
+							<li class="layui-timeline-item">
+								<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+								<div class="layui-timeline-content layui-text">
+									<div class="layui-timeline-title">很久很久以前...</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 底部信息 -->
+		{(footer.html)}
+		<ul class="layui-fixbar">
+			<li class="layui-icon layui-fixbar-top" lay-type="top" style="display: list-item;">&#xe604;</li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="../layui.js"></script>
+	<script type="text/javascript" src="../lay/system/public.js?v=2.0"></script>
+	<script type="text/javascript" src="../lay/system/web/about.js?v=2.0"></script>
+
+</html>

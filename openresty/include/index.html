@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>偶尔有点困-后台服务</title>
+		<link rel="shortcut icon" href="../images/my/favicon.ico" />
+		<link rel="bookmark" href="../images/my/favicon.ico" />
+		<link rel="stylesheet" href="../css/layui.css" />
+		<link rel="stylesheet" href="../css/admin/admin.css" />
+	</head>
+
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<!-- 左侧导航区域（可配合layui已有的垂直导航） #495060-->
+			<div class="layui-side layui-unselect">
+				<div class="my-layui-logo" lay-href="home/console.html">
+					<span>博客后台管理系统</span>
+				</div>
+				<ul class="layui-nav-myitem">
+					<li>
+						<dt><i class="layui-icon">&#xe705;</i>文章
+	      <i class="layui-icon layui-icon-triangle-r"></i></dt>
+						<dl>
+							<dd id="article_add">
+								<a data-url='article_add.html' data-title='发布文章'>发布文章</a>
+							</dd>
+							<dd>
+								<a data-url='article_classification_label.html' data-title='分类、标签'>分类、标签</a>
+							</dd>
+							<dd id="article_list">
+								<a data-url='article_list.html' data-title='文章管理'>文章管理</a>
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dt><i class="layui-icon">&#xe613;</i>用户中心
+	      <i class="layui-icon layui-icon-triangle-r"></i></dt>
+						<dl>
+							<dd>
+								<a data-url='first5.html' data-title='用户管理'>用户管理</a>
+							</dd>
+							<dd>
+								<a data-url='admin_list.html' data-title='管理员列表'>管理员列表</a>
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dt><i class="layui-icon layui-icon-auz"></i>权限中心
+	      <i class="layui-icon layui-icon-triangle-r"></i></dt>
+						<dl>
+							<dd>
+								<a data-url='menu_list.html' data-title='菜单管理'>菜单管理</a>
+							</dd>
+							<dd>
+								<a data-url='role_list.html' data-title='角色管理'>角色管理</a>
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dt><i class="layui-icon layui-icon-friends"></i>我的设置
+	      <i class="layui-icon layui-icon-triangle-r"></i></dt>
+						<dl>
+							<dd id="userDetail">
+								<a data-url='update_my_base_info.html' data-title='基本资料'>基本资料</a>
+							</dd>
+							<dd>
+								<a data-url='update_my_password.html' data-title='修改密码'>修改密码</a>
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dt><i class="layui-icon layui-icon-set"></i>系统管理
+	      <i class="layui-icon layui-icon-triangle-r"></i></dt>
+						<dl>
+							<dd>
+								<a data-url='web_setting.html' data-title='网站设置'>网站设置</a>
+							</dd>
+							<dd>
+								<a data-url='dictionary_list.html' data-title='字典管理'>字典管理</a>
+							</dd>
+							<dd>
+								<a data-url='first5.html' data-title='邮件服务'>邮件服务</a>
+							</dd>
+							<dd>
+								<a data-url='file_list.html' data-title='文件管理'>文件管理</a>
+							</dd>
+							<dd>
+								<a data-url='first6.html' data-title='数据源监控'>数据源监控</a>
+							</dd>
+							<dd>
+								<a data-url='first6.html' data-title='接口swagger'>接口swagger</a>
+							</dd>
+							<dd>
+								<a data-url='first6.html' data-title='日志管理'>日志管理</a>
+							</dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
+			<!-- 内容主体 -->
+			<div class="layui-body" style="overflow-y: hidden;">
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+				<header class="layui-header layui-unselect">
+					<div class="layui-nav">
+						<ul class="layui-nav-left">
+							<li class="layui-nav-item layadmin-flexible" lay-unselect="">
+								<a href="javascript:;" layadmin-event="flexible" title="侧边伸缩">
+									<i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
+								</a>
+							</li>
+							<li class="layui-nav-item" lay-unselect="">
+								<a href="http://www.bblog.vip" target="_blank" title="前台">
+									<i class="layui-icon layui-icon-website"></i>
+								</a>
+							</li>
+						</ul>
+						<ul class="layui-nav-right">
+							<li class="layui-nav-item layui-hide-xs" lay-unselect="">
+								<a href="javascript:;" layadmin-event="theme">
+									<i class="layui-icon layui-icon-theme"></i>
+								</a>
+							</li>
+							<li class="layui-nav-item layui-hide-xs" lay-unselect="">
+								<a href="javascript:;" layadmin-event="note">
+									<i class="layui-icon layui-icon-note"></i>
+								</a>
+							</li>
+							<li class="layui-nav-item" id="user_info" lay-unselect="">
+								<a><img id="headimgurl" src="../images/my/login.jpg" class="layui-nav-img"><span id="nickname">昵称</span></a>
+								<dl class="layui-nav-child">
+									<dd>
+										<a href="javascript:;">基本信息</a>
+									</dd>
+									<dd>
+										<a href="javascript:;">安全设置</a>
+									</dd>
+									<hr>
+									<dd>
+										<a href="javascript:;">退出</a>
+									</dd>
+								</dl>
+							</li>
+							<li class="layui-nav-item" lay-unselect="">
+								<a href="javascript:;" layadmin-event="theme"><i class="layui-icon layui-icon-more-vertical"></i></a>
+							</li>
+						</ul>
+					</div>
+				</header>
+				<!-- 主体导航栏 -->
+				<nav class="layui-tab" lay-filter="layui-tab" id="wrapper">
+					<ul class="layui-tab-title layui-unselect" id="layui-tabs">
+						<li class="layui-this layui-tab-index" lay-id='index'><i class="layui-icon layui-icon-home"></i> 首页</li>
+					</ul>
+					<div id="fengexian">
+						<!-- 分割线（去除title的border-bottom后） -->
+					</div>
+					<!-- 主体内容 -->
+					<div class="layui-tab-content">
+						<div class="layui-tab-item layui-show">
+
+							<button class="layui-upload-button">按钮</button>
+
+						</div>
+					</div>
+				</nav>
+			</div>
+			<div class="layadmin-body-shade" layadmin-event="shade"></div>
+			<!--右键菜单的源-->
+			<div class="contextMenu" id="myMenu1">
+				<ul>
+					<li id="deletemyself">关闭当前标签</li>
+					<li id="deleteother">关闭其他标签</li>
+					<li id="deleteall">关闭所有标签</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="../layui.js"></script>
+		<script type="text/javascript" src="../lay/system/jquery.min.js"></script>
+		<script type="text/javascript" src="../lay/system/admin/public.js"></script>
+		<script type="text/javascript" src="../lay/system/admin/admin.js"></script>
+		<!-- 三方 -->
+		<script type="text/javascript" src="../lay/system/iscroll.js"></script>
+		<script type="text/javascript" src="../lay/system/jquery.contextmenu.r2.js"></script>
+	</body>
+
+</html>
