@@ -1,12 +1,7 @@
-# 纯真年代博客前后台代码
+### 纯真年代博客前后台代码
 
- **PS1：layui/web下public-img-webm.html、user-area-view.html是和服务器同步的，其他的我都是用的模板渲染，在lua/templates下面** 
-
- **PS2：如果你在win下启动nginx，起不了(你们电脑我没试过，因为这里我是将项目全部上传了)，可能缺文件夹（这些文件夹都是nginx启动后创建的，空文件夹git上传不了）。如果非要启动的话，建议大家下一个服务器，将这边的配置啥的拷贝下应该就可以** 
-
-![输入图片说明](https://images.gitee.com/uploads/images/2018/1013/004227_0ee17dde_1559021.png "屏幕截图.png")
-#### 项目介绍
-纯真年代博客
+ **> 前台：openresty/bblog** 
+ **> 后台：triedblog** 
 
 #### 项目预览
 
