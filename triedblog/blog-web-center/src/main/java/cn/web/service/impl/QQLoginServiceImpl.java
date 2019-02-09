@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,10 +45,14 @@ public class QQLoginServiceImpl extends DefaultLoginServiceImpl {
 	private static final String CALLBACK_URL = "http://www.bblog.vip/api/blog-web/oauth2/qqCode"; // QQ 在登陆成功后回调的 URL，这个
 																									// URL
 																									// 必须在 QQ
-																									// 互联里填写过
-	private static final String API_KEY = "101486279"; // QQ 互联应用管理中心的 APP ID
-	private static final String API_SECRET = "3b895c504fcf2649bdef145b48a76502"; // QQ 互联应用管理中心的 APP Key
-	private static final String SCOPE = "get_user_info"; // QQ 互联的 API 接口，访问用户资料
+	@Value("${oauth2.qq.api_key}") // 互联里填写过
+	private static String API_KEY; // QQ 互联应用管理中心的 APP ID
+
+	@Value("${oauth2.qq.api_secret}")
+	private static String API_SECRET; // QQ 互联应用管理中心的 APP Key
+
+	@Value("${oauth2.qq.scope}")
+	private static String SCOPE; // QQ 互联的 API 接口，访问用户资料
 
 	@Override
 	public String getAuthorizationUrl() {

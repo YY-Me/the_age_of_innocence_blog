@@ -86,3 +86,8 @@ management:
   endpoint:
     health:
       show-details: always  
+oauth2: 
+  qq:
+    api_key: api_key
+    api_secret: api_secret
+    scope: scope
