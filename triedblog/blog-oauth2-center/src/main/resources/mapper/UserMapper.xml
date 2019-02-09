@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.oauth2.dao.UserDao">
+  
+  <select id="selectRoleInUid" resultType="cn.commons.model.Role">
+  	SELECT * FROM `system_role` WHERE id in 
+  	<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+  		#{item}
+  	</foreach>
+  </select>
+  
+  <select id="selectMenuByRid" resultType="java.lang.Long">
+  	SELECT system_role_menu.menuid FROM `system_role_menu` WHERE roleid in 
+  	<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+  		#{item}
+  	</foreach>
+  </select>
+  
+  <select id="selectMenuInRid" resultType="cn.commons.model.Menu">
+  	SELECT * FROM `system_menu` WHERE id in 
+  	<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+  		#{item}
+  	</foreach>
+  	ORDER BY sort
+  </select>
+  
+  
+</mapper>
