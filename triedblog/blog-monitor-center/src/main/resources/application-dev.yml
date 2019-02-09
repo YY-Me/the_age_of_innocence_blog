@@ -1,0 +1,36 @@
+#端口
+server: 
+  port: 9802
+  
+spring:
+  application:
+    name: blog-monitor-center  
+  profiles:
+    active:
+    - secure
+#安全账号
+  security:
+    user:
+      name: "user"
+      password: "password"
+#注入到服务中心
+eureka:
+  instance: 
+    hostname: 127.0.0.1
+    health-check-url-path: /actuator/health
+    metadata-map: 
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+  client:
+    registerWithEureka: true
+    registry-fetch-interval-seconds: 5
+    serviceUrl:
+      defaultZone: http://test:123@127.0.0.1:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
