@@ -37,6 +37,9 @@ public class SystemController {
 	@ApiOperation(value = "查询网站基本信息")
 	PublicResultJosn getWebSiteInfo() {
 		Object object = (WebSiteBaseInfo) redisTemplate.opsForValue().get("BlogWebSiteBaseInfo:baseinfo");
+		if (null == object) {
+			object = new WebSiteBaseInfo();
+		}
 		return new PublicResultJosn(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(), object);
 	}
 
