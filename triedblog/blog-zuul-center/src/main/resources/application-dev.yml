@@ -1,0 +1,75 @@
+#端口
+server: 
+  port: 9879
+
+#服务名 
+spring: 
+  application:
+    name: blog-zuul-center
+  mvc:
+    servlet:
+      load-on-startup: 1
+#zipkin
+  zipkin:
+    base-url: http://127.0.0.1:9411
+#网关 
+zuul:
+  ignored-services: '*'
+  sensitive-headers: 
+  routes: 
+    api-a: 
+      path: /api/blog-admin/**
+      serviceId: blog-admin-center
+    api-b:
+      path: /api/blog-oauth2/**
+      serviceId: blog-oauth2-center
+    api-c: 
+      path: /api/file-center/**
+      serviceId: blog-file-center
+    api-d: 
+      path: /api/blog-web/**
+      serviceId: blog-web-center
+  add-proxy-headers: true 
+  host: 
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000 
+  ribbon-isolation-strategy: thread
+#路由方式是serviceId的方式，那么ribbon的生效，如果是url的方式，则zuul.host开头的生效。（此处重要！使用serviceId路由和url路由是不一样的超时策略
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+hystrix: 
+  command: 
+    default: 
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+  threadpool: 
+    default:
+      coreSize: 100
+      maximumSize: 5000
+      allowMaximumSizeToDivergeFromCoreSize: true
+      maxQueueSize: -1  
+       
+#注册到服务中心    
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5
+    prefer-ip-address: false
+  client:
+  #表示eureka client间隔多久去拉取服务注册信息，默认为30秒，对于api-gateway，如果要迅速获取服务注册状态，可以缩小该值，比如5秒
+    registry-fetch-interval-seconds: 5
+    fetchRegistry: true
+    serviceUrl: 
+      defaultZone: http://test:123@127.0.0.1:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always   
