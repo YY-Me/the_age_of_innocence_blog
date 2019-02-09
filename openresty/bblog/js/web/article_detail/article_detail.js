@@ -9,12 +9,12 @@ layui.config({
 		$ = common.$,
 		edit = layui.edit,
 		flow = layui.flow;
-	var leave_msg = {
+	var article_detail = {
 		toId: null,
 		parentId: null,
 		init: function() {
-			leave_msg.bindEvent();
-			leave_msg.initEditor();
+			article_detail.bindEvent();
+			article_detail.initEditor();
 			$('#article_editor').val("");
 		},
 		bindEvent: function() {
@@ -22,16 +22,16 @@ layui.config({
 			//提交回复
 			$('.layui-submit').click(function() {
 				//token，cookie验证登录
-				/*if(!common.checkLogin()) {
+				if(!common.checkLogin()) {
 					layer.msg("请先登录", {
 						icon: 5,
 						time: 2000
 					});
 					return;
-				}*/
+				}
 				var data = {};
-				data.parentId = $.trim(leave_msg.parentId);
-				data.toId = $.trim(leave_msg.toId);
+				data.parentId = $.trim(article_detail.parentId);
+				data.toId = $.trim(article_detail.toId);
 				var content = $.trim($('.article_editor').val());
 				if(content.length < 3) {
 					layer.msg('留言内容不能小于3个非空格字符', {
@@ -61,11 +61,11 @@ layui.config({
 
 			//评论中点击回复
 			$('#comment_list').on('click', 'li .info .reply', function() {
-				leave_msg.parentId = $.trim($(this).attr('parentId'));
+				article_detail.parentId = $.trim($(this).attr('parentId'));
 				var toName = $(this).parent('.info').siblings('.pad-btm').children('.user_nickname');
 				var nick_name = toName.attr('title');
 				var text = '@' + nick_name + " ";
-				leave_msg.toId = toName.attr('uid')
+				article_detail.toId = toName.attr('uid')
 				$('#article_editor').val(text)
 				location.hash = "nextinfo"
 				$('#article_editor')[0].focus()
@@ -79,9 +79,9 @@ layui.config({
 				isAuto: false,
 				done: function(page, next) {
 					var lis = [];
-					$.get(common.IP + '/api/blog-web/leaveMsg/list?page=' + page, function(res) {
+					$.get('/api/blog-web/article/comment/'+$.trim($('#article_id').attr('article_id'))+'?page=' + page, function(res) {
 						layer.closeAll('loading');
-						var html = common.pHtml(res.data, false)
+						var html = article_detail.pHtml(res.data, false)
 						lis.push(html);
 						next(lis.join(''), page < res.pages);
 					});
@@ -94,7 +94,7 @@ layui.config({
 				elem: '.article_editor'
 			});
 		},
-		pHtml: function() {
+		pHtml: function(list,isChild) {
 			var html = "";
 			layui.each(list, function(idx, obj) {
 				var parent = obj.parent;
@@ -112,7 +112,7 @@ layui.config({
 					"<a class='user_header_img'><img alt='" + parent.fromName + "' title='" + parent.fromName + "' src='" + parent.fromHeadImg + "'/></a>" +
 					"<div class='pad-btm'>" +
 					"<p class='user_nickname' title='" + parent.fromName + "' uid='" + parent.fromId + "'>" + parent.fromName + "" + c + "</p>" +
-					"<p class='min-font' uid='001'>来自" + parent.area + "客户端-" + diaplayTime(parent.createTime) + "</p>" +
+					"<p class='min-font' uid='001'>来自" + parent.area + "客户端-" + common.diaplayTime(parent.createTime) + "</p>" +
 					"</div>" +
 					"<div class='comment_content layui-text'>" +
 					parent.content +
@@ -122,7 +122,7 @@ layui.config({
 					"<a class='reply' parentId='" + parent.leaveId + "'>回复</a>" +
 					"</div>" +
 					"<div class='childs'>" +
-					pHtml(childs, true) +
+					article_detail.pHtml(childs, true) +
 					"</div>" +
 					"</li>";
 			});
@@ -130,6 +130,6 @@ layui.config({
 		}
 	};
 	$(function() {
-		leave_msg.init();
+		article_detail.init();
 	});
 });

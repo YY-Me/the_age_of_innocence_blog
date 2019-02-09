@@ -22,13 +22,13 @@ layui.config({
 			//提交回复
 			$('.layui-submit').click(function() {
 				//token，cookie验证登录
-				/*if(!common.checkLogin()) {
+				if(!common.checkLogin()) {
 					layer.msg("请先登录", {
 						icon: 5,
 						time: 2000
 					});
 					return;
-				}*/
+				}
 				var data = {};
 				data.parentId = $.trim(leave_msg.parentId);
 				data.toId = $.trim(leave_msg.toId);
@@ -81,7 +81,7 @@ layui.config({
 					var lis = [];
 					$.get(common.IP + '/api/blog-web/leaveMsg/list?page=' + page, function(res) {
 						layer.closeAll('loading');
-						var html = common.pHtml(res.data, false)
+						var html = leave_msg.pHtml(res.data, false)
 						lis.push(html);
 						next(lis.join(''), page < res.pages);
 					});
@@ -94,7 +94,7 @@ layui.config({
 				elem: '.article_editor'
 			});
 		},
-		pHtml: function() {
+		pHtml: function(list,isChild) {
 			var html = "";
 			layui.each(list, function(idx, obj) {
 				var parent = obj.parent;
@@ -112,7 +112,7 @@ layui.config({
 					"<a class='user_header_img'><img alt='" + parent.fromName + "' title='" + parent.fromName + "' src='" + parent.fromHeadImg + "'/></a>" +
 					"<div class='pad-btm'>" +
 					"<p class='user_nickname' title='" + parent.fromName + "' uid='" + parent.fromId + "'>" + parent.fromName + "" + c + "</p>" +
-					"<p class='min-font' uid='001'>来自" + parent.area + "客户端-" + diaplayTime(parent.createTime) + "</p>" +
+					"<p class='min-font' uid='001'>来自" + parent.area + "客户端-" + common.diaplayTime(parent.createTime) + "</p>" +
 					"</div>" +
 					"<div class='comment_content layui-text'>" +
 					parent.content +
@@ -122,7 +122,7 @@ layui.config({
 					"<a class='reply' parentId='" + parent.leaveId + "'>回复</a>" +
 					"</div>" +
 					"<div class='childs'>" +
-					pHtml(childs, true) +
+					leave_msg.pHtml(childs, true) +
 					"</div>" +
 					"</li>";
 			});
