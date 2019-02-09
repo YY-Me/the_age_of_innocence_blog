@@ -4,12 +4,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title>偶尔有点困-关于</title>
+		<title>关于本站~{* webBaseInfo.data.sitename *}</title>
+		<meta name="keywords" content="{* webBaseInfo.data.keywords *}" />
+		<meta name="description" content="{* webBaseInfo.data.descript *}" />
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 		<link rel="bookmark" href="/favicon.ico" />
 		<link rel="stylesheet" href="../css/layui.css" />
-		<link rel="stylesheet" href="../css/web/common.css" />
-		<link rel="stylesheet" href="../css/web/about.css" />
+		<link rel="stylesheet" href="../css/web/common.css?v=2.0" />
+		<link rel="stylesheet" href="../css/web/about.css?v=2.0" />
+		<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+		<!--[if lt IE 8]>
+		<script type="text/javascript" src="plugins/ace/js/buttons.html5.min.js" ></script>
+		<script type="text/javascript" src="plugins/ace/js/respond.min.js"></script>
+		<![endif]-->
 	</head>
 
 	<body>
@@ -32,10 +39,11 @@
 							<p class="yunxing">
 								<span class="show-title">快速链接</span>
 								<span class="jiesao">
-									<a href="https://gitee.com/yy1122/the_age_of_innocence_blog.git" target="_blank" style="color:red;text-decoration:underline;">码云项目直达车(最新时间:2018-10-13 00:00)</a>
-									&nbsp;&nbsp;<a href="../admin/login.html" target="_blank" style="color:red;text-decoration:underline;">后台直达车</a>
-									&nbsp;&nbsp;<a href="https://fly.layui.com/case/2018/" target="_blank" style="color:red;text-decoration:underline;">Layui案例直达车</a>
-									&nbsp;&nbsp;<a href="https://www.bblog.vip/web/public-img-webm.html" target="_blank" style="color:red;text-decoration:underline;">本站静态资源</a>
+									<a href="https://gitee.com/yy1122/the_age_of_innocence_blog.git" target="_blank" style="color:#D5492A;text-decoration:underline;">码云项目直达车(最新时间:2018-10-13)</a>
+									&nbsp;&nbsp;<a href="../admin/login.html" target="_blank" style="color:#FF0000;text-decoration:underline;">后台直达车</a>
+									&nbsp;&nbsp;<a href="https://fly.layui.com/case/2018/" target="_blank" style="color:#FF0000;text-decoration:underline;">Layui案例直达车</a>
+									&nbsp;&nbsp;<a href="https://www.bblog.vip/public_resource" target="_blank" style="color:#D5492A;text-decoration:underline;">本站静态资源</a>
+									&nbsp;&nbsp;<a href="https://blog.csdn.net/qq_33396608" target="_blank" style="color:#D5492A;text-decoration:underline;">我的SCDN</a>
 								</span>
 								<span class="show-title">博客前台</span>
 								<span class="jiesao">
@@ -57,44 +65,20 @@
 								</span>
 							</p>
 							<p class="time">本站已苟活：<span id="yunxing"></span></p>
-							<strong style="position: absolute;bottom: 0;left: 0;right: 0;text-align: center;line-height: 30px;">The End</strong>                         
+							<strong style="position: absolute;bottom: 0;left: 0;right: 0;text-align: center;height: 30px;line-height: 30px;">The End</strong>
                         </div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- 底部信息 -->
-		<footer class="footer" style="margin-top:40px;">
-			<div class="footavatar">
-				<img src="https://www.bblog.vip/images/my/login.jpg" class="footphoto">
-				<ul class="footinfo">
-					<p class="fname">
-						<a href="javascript:;">偶尔有点困</a>
-					</p>
-					<p class="finfo">性别：^_^ 年龄：^_^岁</p>
-					<p>现居：重庆</p>
-				</ul>
-			</div>
-			<div class="info">
-				<p>承认现实生活中的不足之处，并通过自己的努力去弥补这种不足</p>
-				<span>
-										<a>© 2018 纯真年代-博客</a>
-									</span>
-				<span>
-										<a href="http://www.miitbeian.gov.cn" target="_blank">渝ICP备17007479号-2</a>
-									</span>
-				<span class="no-right-border">
-								<a href="../admin/login.html" target="_blank">后台登录</a>
-									</span>
-				<span class="layui-clear no-right-border"></span>
-			</div>
-		</footer>
+		{(footer.html)}
 		<ul class="layui-fixbar">
 			<li class="layui-icon layui-fixbar-top" lay-type="top" style="display: list-item;">&#xe604;</li>
 		</ul>
 	</body>
 	<script type="text/javascript" src="../layui.js"></script>
-	<script type="text/javascript" src="../lay/system/public.js?v=1.0"></script>
-	<script type="text/javascript" src="../lay/system/web/about.js?v=1.0"></script>
+	<script type="text/javascript" src="../lay/system/public.js?v=2.0" ></script>
+	<script type="text/javascript" src="../lay/system/web/about.js"></script>
 
 </html>

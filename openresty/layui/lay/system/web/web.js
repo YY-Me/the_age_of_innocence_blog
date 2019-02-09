@@ -3,7 +3,7 @@ layui.use(['layer', 'element'], function() {
 		layer = layui.layer,
 		$ = layui.$
 	$(function() {
-		
+		$("#quotecontent").html(quotecontents[getNowstrDate()])
 		try{
 			var classifyName=($('#classifyName').html()).trim();
 			var classifyList=$('.classify .content a');

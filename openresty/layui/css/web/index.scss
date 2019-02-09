@@ -1,6 +1,7 @@
 @charset "utf-8";
 body {
     background: #DDD6CC;
+    padding-top: 0;
 }
 
 .animated {
@@ -150,12 +151,12 @@ body {
 .scorllimgs {
     width: 100%;
     margin-bottom: 15px;
-    opacity: .8;
+    opacity: .9;
     overflow: hidden;
+    position: relative;
     img{
         width: 100%;
         position: relative;
-        top: -50%;
     }
 }
 
@@ -761,5 +762,12 @@ ul.pagination {
 @media (min-width: 900px) {
     .scorllimgs {
         height: 350px;
+    }
+}
+@media (min-width: 1200px) {
+    .scorllimgs {
+        img{
+            top: -30%;
+        }
     }
 }

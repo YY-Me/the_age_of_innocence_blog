@@ -58,6 +58,7 @@ layui.use(['layer', 'form', 'laydate', 'table', 'upload'], function() {
 			},
 			url: IP + "/api/file-center/file/upload_file",
 			multiple: true,
+			accept: 'file',
 			number: 50,
 			data: {
 				prefix: $('#folder_address').html() == "/" ? "" : $('#folder_address').html()

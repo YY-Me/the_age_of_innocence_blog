@@ -32,14 +32,15 @@
 				<a href="/article_list?__hbt=1524650296533">文章归档</a>
 			</li>
 			<li class="layui-nav-item {% if(is_this_index=='jinti') then %} layui-this{%end%}">
-				<a href="/index?__hbt=1524650296533">那年今日</a>
+				<a href="/line-time?__hbt=1524650296533">那年今日</a>
 			</li>
 			<li class="layui-nav-item {% if(is_this_index=='shiyan') then %} layui-this{%end%}">
-				<a href="javascript:;">实验&nbsp;<i class="layui-icon layui-icon-triangle-d"></i></a>
+				<a href="javascript:;">实验&nbsp;<i class="layui-icon layui-icon-triangle-d"></i><span class="layui-badge-dot"></span></a>
 				<dl class="layui-nav-child">
 		          <dd><a href="/video" target="view_window">视频解析</a></dd>
-		          <dd><a href="/web/user-area-view.html" target="view_window">简单统计（按天）</a></dd>
-		          <dd><a href="/web/public-img-webm.html" target="view_window">本站静态资源</a></dd>
+		          <dd><a href="/blogStat" target="view_window">简单统计（按天）</a></dd>
+		          <dd><a href="/public_resource" target="view_window">本站静态资源<span class="layui-badge">2018-12-22</span></a></dd>
+		          <dd><a href="http://datav.aliyun.com/share/a7b8bfa0cd29864dd55c00b8eb62e65c" target="view_window">Spark Streaming流(批)处理<span class="layui-badge-dot"></span></a></dd>
 		        </dl>
 			</li>
 			<li class="layui-nav-item {% if(is_this_index=='leave_msg') then %} layui-this{%end%}">

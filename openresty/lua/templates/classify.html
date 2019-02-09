@@ -4,12 +4,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title>偶尔有点困-文章分类</title>
+		<title>文章分类~{* webBaseInfo.data.sitename *}</title>
+		<meta name="keywords" content="{* webBaseInfo.data.keywords *}" />
+		<meta name="description" content="{* webBaseInfo.data.descript *}" />
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 		<link rel="bookmark" href="/favicon.ico" />
 		<link rel="stylesheet" href="../css/layui.css" />
-		<link rel="stylesheet" href="../css/web/common.css" />
-		<link rel="stylesheet" href="../css/web/clssify.css" />
+		<link rel="stylesheet" href="../css/web/common.css?v=2.0" />
+		<link rel="stylesheet" href="../css/web/clssify.css?v=2.0" />
+		<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+		<!--[if lt IE 8]>
+		<script type="text/javascript" src="plugins/ace/js/buttons.html5.min.js" ></script>
+		<script type="text/javascript" src="plugins/ace/js/respond.min.js"></script>
+		<![endif]-->
 	</head>
 
 	<body>
@@ -201,7 +208,7 @@
 		</ul>
 	</body>
 	<script type="text/javascript" src="../layui.js"></script>
-	<script type="text/javascript" src="../lay/system/public.js?type=6gh45dy6vbsdf33823fdgs"></script>
-	<script type="text/javascript" src="../lay/system/web/classify.js?type=6gh45dy6vbsdf33823fdgs"></script>
+	<script type="text/javascript" src="../lay/system/public.js?v=2.0" ></script>
+	<script type="text/javascript" src="../lay/system/web/classify.js?v=2.0"></script>
 
 </html>

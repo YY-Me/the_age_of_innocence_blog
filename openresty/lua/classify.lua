@@ -19,6 +19,7 @@ local path_3=path.."/article/blogArticleLable"
 local path_4=path.."/article/hotBlogArticle"
 local path_5=path.."/article/classify"
 local path_6=path.."/recentUser"
+local path_7=path.."/system/baseInfo"
 
 local _M = {}
 function _M.index()
@@ -54,6 +55,11 @@ function _M.index()
 		method = "GET",
 		path = path_6
 	})
+	-- 网站基本信息
+	local resp_7, err_7 = httpClient:request_uri(url, {
+		method = "GET",
+		path = path_7
+	})
 	-- 获取请求结果(json->table)
 	local articleList=cjson.decode(resp_1.body)
 	local blogArticleClassifyLable=cjson.decode(resp_2.body)
@@ -61,8 +67,9 @@ function _M.index()
 	local hotBlogArticle=cjson.decode(resp_4.body)
 	local classify=cjson.decode(resp_5.body)
 	local recentUser=cjson.decode(resp_6.body)
+	local webBaseInfo=cjson.decode(resp_7.body)
 	httpClient:close()
-	local result ={articles=articleList,classifyName=m[2],blogArticleClassifyLables=blogArticleClassifyLable,blogArticleLables=blogArticleLable,hotBlogArticles=hotBlogArticle,classifys=classify,recentUsers=recentUser}
+	local result ={articles=articleList,classifyName=m[2],blogArticleClassifyLables=blogArticleClassifyLable,blogArticleLables=blogArticleLable,hotBlogArticles=hotBlogArticle,classifys=classify,recentUsers=recentUser,webBaseInfo=webBaseInfo}
 	--ngx.say(cjson.encode(result))
 	--ngx.say(path_1)
 	--math.randomseed(os.time())

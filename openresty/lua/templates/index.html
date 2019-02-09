@@ -4,12 +4,14 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title>纯真年代-个人博客</title>
+		<title>{* webBaseInfo.data.title *}~{* webBaseInfo.data.sitename *}</title>
+		<meta name="keywords" content="{* webBaseInfo.data.keywords *}" />
+		<meta name="description" content="{* webBaseInfo.data.descript *}" />
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 		<link rel="bookmark" href="/favicon.ico" />
 		<link rel="stylesheet" href="../css/layui.css" />
-		<link rel="stylesheet" href="../css/web/login.css" />
-		<link rel="stylesheet" href="../css/web/index.css" />
+		<link rel="stylesheet" href="../css/web/login.css?v=2.0" />
+		<link rel="stylesheet" href="../css/web/index.css?v=2.2" />
 	</head>
 
 	<body>
@@ -20,23 +22,26 @@
 		<!-- 轮播图 -->
 		<div class="scorllimgs">
 			{% 
-				math.randomseed(tostring(ngx.now()):reverse():sub(1, 6))
-				local imgsnum=math.random(1,77)
+				math.randomseed(tostring(os.time()):reverse():sub(1, 7))
+				local imgsnum=math.random(1,22)
 			%}
-			<!--
-            <img src="https://mat1.gtimg.com/news/qq2018/huanq_ten_bg.jpg" style="top:0px;" />
+            <!--
+            <img src="https://triedblog.oss-cn-beijing.aliyuncs.com/index_background/programmer/499787.png" />
             -->
             <!--
 			<img src="/images/background/background{*imgsnum*}.jpg" />
 			-->
-            <img src="https://triedblog.oss-cn-beijing.aliyuncs.com/index_background/background{*imgsnum*}.jpg" />
+            
+            <img src="https://triedblog.oss-cn-beijing.aliyuncs.com/index_background/20181016/background{*imgsnum*}.jpeg" />
+            
+            <!--<img src="https://triedblog.oss-cn-beijing.aliyuncs.com/blog/20181222/tb/background{*imgsnum*}.jpg" />-->
 		</div>
 		<div class="content">
 			<!-- 每日语录 -->
 			<div class="layui-container quoteoftheday layui-anim layui-anim-fadein">
 				<span class="quotetitle layui-unselect">每日语录：</span>
 				<i id="quoterefresh" class="layui-icon layui-icon-face-smile layui-unselect"></i>
-				<a class="quotecontent">即使没有成功，也不会带有遗憾，因为曾经付出了...</a>
+				<a class="quotecontent" id="quotecontent">滴答~欢迎来到纯真年代个人博</a>
 			</div>
 			<!-- 帖子 -->
 			<div class="layui-container mycontent">
@@ -126,7 +131,7 @@
 		</div>
 		<!-- 底部信息 -->
 		{(footer.html)}
-		<ul class="layui-fixbar">
+		<ul class="layui-fixbar" style="display: none;">
 			<li class="layui-icon layui-fixbar-top" lay-type="top" style="display: list-item;">&#xe604;</li>
 		</ul>
 		<!--<div id="music163" class="animated">
@@ -135,6 +140,6 @@
 		</div>-->
 	</body>
 	<script type="text/javascript" src="../layui.js"></script>
-	<script type="text/javascript" src="../lay/system/public.js?type=6gh45dy6vbsdf33823fdgs" ></script>
-	<script type="text/javascript" src="../lay/system/web/web.js?type=6gh45dy6vbsdf33823fdgs"></script>
+	<script type="text/javascript" src="../lay/system/public.js?v=2.1" ></script>
+	<script type="text/javascript" src="../lay/system/web/web.js?v=2.0"></script>
 </html>

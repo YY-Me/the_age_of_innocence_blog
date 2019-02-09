@@ -57,7 +57,7 @@ layui.config({
 					});
 				}
 			});
-		})
+		});
 		//加载更多
 		flow.load({
 			elem: '#comment_list',
@@ -93,7 +93,7 @@ layui.config({
 						"<p class='user_nickname' title='"+parent.fromName+"' uid='"+parent.fromId+"'>"+parent.fromName+""+c+"</p>" +
 						"<p class='min-font' uid='001'>来自"+parent.area+"客户端-"+diaplayTime(parent.createTime)+"</p>" +
 					"</div>" +
-					"<div class='comment_content'>" +
+					"<div class='comment_content layui-text'>" +
 						parent.content +
 					"</div>" +
 					"<div class='info'>" +
@@ -118,7 +118,7 @@ layui.config({
 			location.hash="nextinfo"
 			$('#article_editor')[0].focus()
 			$('html , body').animate({scrollTop: 0},0);
-		})
+		});
 
 	})
 });

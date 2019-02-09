@@ -49,18 +49,18 @@
   top: 0;
   overflow-x: hidden;
   position: absolute;
-  left: -200px;
+  left: -210px;
   bottom: 0;
-  width: 200px;
-  background: #344058;
+  width: 210px;
+  background: #03152A;
   z-index: 1001; }
   .layui-layout-admin .layui-side .my-layui-logo {
-    width: 200px;
+    width: 210px;
     height: 50px;
     line-height: 50px;
     box-sizing: border-box;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
-    color: #1E9FFF;
+    color: rgba(255, 255, 255, 0.7);
     overflow: hidden;
     text-align: center; }
     .layui-layout-admin .layui-side .my-layui-logo span {
@@ -73,7 +73,7 @@
       cursor: pointer; }
     .layui-layout-admin .layui-side .layui-nav-myitem > li dt {
       font-size: 14px;
-      line-height: 45px;
+      line-height: 50px;
       overflow: hidden;
       position: relative;
       padding: 2px 0; }
@@ -84,16 +84,17 @@
         position: absolute;
         right: 0;
         padding-left: 10px;
-        font-size: 12px; }
+        font-size: 14px; }
     .layui-layout-admin .layui-side .layui-nav-myitem > li > dl {
       display: none;
-      background: #2B3549; }
+      background: #020F1D;
+      padding: 4px 0; }
       .layui-layout-admin .layui-side .layui-nav-myitem > li > dl dd {
-        padding-left: 35px;
+        padding-left: 46px;
         margin: 1px 0; }
         .layui-layout-admin .layui-side .layui-nav-myitem > li > dl dd a {
           font-size: 14px;
-          line-height: 38px;
+          line-height: 40px;
           color: rgba(255, 255, 255, 0.7); }
         .layui-layout-admin .layui-side .layui-nav-myitem > li > dl dd:hover {
           background: #1E9FFF; }
@@ -121,7 +122,7 @@
       border-bottom-style: none; }
       .layui-layout-admin .layui-body .layui-tab .layui-tab-title .layui-this {
         background: #F6F6F6;
-        color: #1E9FFF;
+        color: #20222A;
         letter-spacing: 1px; }
         .layui-layout-admin .layui-body .layui-tab .layui-tab-title .layui-this:after {
           border-width: 0px;
@@ -131,7 +132,7 @@
         border-right: 1px solid #f6f6f6; }
         .layui-layout-admin .layui-body .layui-tab .layui-tab-title li:hover {
           background: #F6F6F6;
-          color: #1E9FFF; }
+          color: #20222A; }
     .layui-layout-admin .layui-body .layui-tab #fengexian {
       height: 1px;
       background: #f2f2f2;
@@ -158,7 +159,7 @@
   .layui-layout-admin .layui-side {
     left: 0px; }
   .layui-layout-admin .layui-body {
-    left: 200px; } }
+    left: 210px; } }
 .layui-layout-admin .layui-header .layui-nav li, .layui-layout-admin .layui-side, .layui-layout-admin .layui-side .layui-icon-triangle-r, .layui-layout-admin .layui-body, .layui-nav-myitem li, .layui-nav-myitem a, .layui-nav-myitem dd {
   transition: all 0.3s;
   -moz-transition: all 0.3s;

@@ -30,7 +30,7 @@
 					</a>
 				</span>
 				<span class="layui-col-md4 layui-col-sm4 layui-col-xs4">
-					<a href="#foot_recentuser" atitle="访客">
+					<a href="#foot_recentuser" atitle="用户">
 						<i class="layui-icon layui-bg-blue layui-icon-user"></i>
 						<b>{* blogArticleClassifyLables[4].num *}</b>
 						<b class="txt">用户</b>
@@ -46,7 +46,7 @@
 				<span class="layui-col-md4 layui-col-sm4 layui-col-xs4 no-right-border">
 					<a href="#right_youzan" atitle="友站">
 						<i class="layui-icon" style="background: #66DAFB;">&#xe650;</i>
-						<b>3</b>
+						<b>4</b>
 						<b class="txt">友站</b>
 					</a>
 				</span>
@@ -59,7 +59,9 @@
 			<h3 class="layui-unselect">文章标签</h3>
 			<div class="content">
 				{% for i = 1, #blogArticleLables do local t = blogArticleLables[i] %}
-					<a class="animated3" href="/label/{* t.id *}" title="{* t.name *}" style="background-color: {* t.color *};">{* t.name *}</a>
+					<a class="animated3" href="/label/{* t.id *}" title="{* t.name *}" style="background-color: {* t.color *};">{* t.name *}
+						<span class="layui-bg-gray" style="font-size: 14px;padding:0 4px;border-radius: 2px;">{* t.num *}</span>
+					</a>
 				{% end %}
 			</div>
 		</div>
@@ -68,7 +70,7 @@
 			<h3 class="layui-unselect">文章分类</h3>
 			<div class="content">
 				{% for i = 1, #classifys do local t = classifys[i] %}
-				<a href="/classify/{* t.classifyid *}" title="{* t.name *}">{* t.name *} ({* t.num *})</a>
+				<a href="/classify/{* t.id *}" title="{* t.name *}">{* t.name *} ({* t.num *})</a>
 				{% end %}
 			</div>
 		</div>
@@ -106,6 +108,12 @@
 			<div class="content">
 				<ol>
 					<div class="layui-row">
+						<div class="layui-col-md6 layui-col-sm6 layui-col-xs6">
+							<li>
+								<img title="我的CSDN" alt="我的CSDN" src="https://triedblog.oss-cn-beijing.aliyuncs.com/blog/public-ico/csdn-favicon.ico" style="display: inline-block;max-width: 16px;max-height: 16px;border: none;" />
+								<a title="我的CSDN" target="_blank" href="https://blog.csdn.net/qq_33396608">我的CSDN</a>
+							</li>
+						</div>
 						<div class="layui-col-md6 layui-col-sm6 layui-col-xs6">
 							<li>
 								<img title="灰’s Blog" alt="灰’s Blog" src="https://www.hurbai.com/favicon.ico" style="display: inline-block;max-width: 16px;max-height: 16px;border: none;" />
@@ -152,6 +160,28 @@
 							<li>
 								<a target="_blank" href="https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=7ulkk1gd">企业级ECS云服务器特惠</a>
 							</li>
+						</div>
+					</div>
+				</ol>
+			</div>
+		</div>
+		<!-- google广告 -->
+		<div class="re-post">
+			<div class="content" style="padding-left: 10px;text-align: center;overflow:hidden;">
+				<ol>
+					<div class="layui-row">
+						<div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- 右边导航广告 -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-8186665406720470"
+                                 data-ad-slot="1658992109"
+                                 data-ad-format="auto"
+                                 data-full-width-responsive="true"></ins>
+                            <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
 						</div>
 					</div>
 				</ol>

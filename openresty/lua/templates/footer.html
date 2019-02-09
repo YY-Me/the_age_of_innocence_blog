@@ -3,12 +3,14 @@
 		<img src="../images/my/login.jpg" class="footphoto">
 		<ul class="footinfo">
 			<p class="fname">
-				<a href="javascript:;">偶尔有点困</a>
+				<a href="javascript:;">纯真年代</a>
 			</p>
-			<p class="finfo">性别：^_^ 年龄：22岁</p>
+			<p class="finfo">性别：^_^ 年龄：^_^</p>
 			<p>现居：重庆</p>
 		</ul>
 	</div>
+	{% if(is_this_index ~= 'about') then %}
+	
 	<div class="recentuser layui-hide-xs" id="foot_recentuser">
 		<p>最近访客</p>
 		<ul>
@@ -20,13 +22,15 @@
 			{% end %}
 		</ul>
 	</div>
+	
+	{%end%}
 	<div class="info">
 		<p>承认现实生活中的不足之处，并通过自己的努力去弥补这种不足</p>
 		<span>
 								<a>© 2018 纯真年代-博客</a>
 							</span>
 		<span>
-										<a href="http://www.miitbeian.gov.cn" target="_blank">渝ICP备17007479号-2</a>
+										<a href="http://www.miitbeian.gov.cn" target="_blank">{* webBaseInfo.data.copyright *}</a>
 							</span>
 		<span class="no-right-border">
 								<a href="../admin/login.html" target="_blank">后台登录</a>

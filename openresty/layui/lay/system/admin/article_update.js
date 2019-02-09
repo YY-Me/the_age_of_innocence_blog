@@ -71,6 +71,7 @@ layui.use(['layer', 'element', 'form', 'upload'], function() {
 		elem: '#updateS',
 		url: '/api/blog-admin/article/upImg',
 		size: 5000,
+		accept: 'file',
 		done: function(res) {
 			//上传完毕回调
 			$('.layui-upload-img').attr('src', res.data[0])

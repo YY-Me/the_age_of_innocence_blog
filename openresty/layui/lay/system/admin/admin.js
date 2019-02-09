@@ -121,7 +121,7 @@ layui.use(['layer', 'element'], function() {
                 changeLAY_app_flexible(true)
                 $('.layadmin-body-shade').hide();
             } else {
-                changeSide(200)
+                changeSide(210)
                 changeLAY_app_flexible(false)
                 if($(window).width() <= 768) {
                     $('.layadmin-body-shade').show();
@@ -135,14 +135,14 @@ layui.use(['layer', 'element'], function() {
                 changeSide(0)
                 $('#LAY_app_flexible').addClass('layui-icon-spread-left');
             } else {
-                changeSide(200)
+                changeSide(210)
                 $('#LAY_app_flexible').addClass('layui-icon-shrink-right');
             }
         }
 
         function changeSide(width) {
             $('.layui-layout-admin .layui-side').css({
-                "left": -(200 - width) + "px",
+                "left": -(210 - width) + "px",
             })
             $('.layui-layout-admin .layui-body').css({
                 "left": width + "px",
