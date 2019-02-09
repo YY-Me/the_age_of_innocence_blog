@@ -1,4 +1,4 @@
-# 纯真年代博客
+# 纯真年代博客前后台代码
 
  **PS1：layui/web下public-img-webm.html、user-area-view.html是和服务器同步的，其他的我都是用的模板渲染，在lua/templates下面** 
 
