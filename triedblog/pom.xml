@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>triedblog</groupId>
+  <artifactId>triedblog</artifactId>
+  <version>2.0</version>
+  <packaging>pom</packaging>
+  
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.3.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+  	<properties>
+		<fastjson.version>1.2.47</fastjson.version>
+        <mybatis.version>1.3.2</mybatis.version>
+        <druid.version>1.1.9</druid.version>
+        <pagehelper.version>1.2.3</pagehelper.version>
+        <commons-collections>4.1</commons-collections>
+		<commons.lang3>3.7</commons.lang3>
+		<log4j>1.2.17</log4j>
+		<jwt.version>0.9.0</jwt.version>
+		<monitor.version>2.0.1-SNAPSHOT</monitor.version>
+		<swagger.version>2.8.0</swagger.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<security-oauth2.version>2.3.2.RELEASE</security-oauth2.version>
+		<spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+	</properties>
+	<dependencies>
+		<!-- 服务健康监控 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+  
+    <!-- dependencyManagement里只是声明依赖，并不实现引入 -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+	        <!-- alibaba druid -->
+	        <dependency>
+	           <groupId>com.alibaba</groupId>
+	           <artifactId>druid-spring-boot-starter</artifactId>
+	           <version>${druid.version}</version>
+	        </dependency>
+	        <!-- pagehelper -->
+	        <dependency>
+	            <groupId>com.github.pagehelper</groupId>
+	            <artifactId>pagehelper-spring-boot-starter</artifactId>
+	            <version>${pagehelper.version}</version>
+	        </dependency>
+		</dependencies>
+	</dependencyManagement>
+	<modules>
+		<module>blog-oauth2-center</module>
+		<module>blog-commons</module>
+		<module>blog-admin-center</module>
+        <module>blog-monitor-center</module>
+		<module>blog-register-center</module>
+		<module>blog-zuul-center</module>
+		<module>blog-file-center</module>
+		<module>blog-web-center</module>
+		<module>blog-config-center</module>
+	</modules>
+</project>
