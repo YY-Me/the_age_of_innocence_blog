@@ -1,0 +1,88 @@
+#端口
+server: 
+  port: 0
+logging: 
+  level: 
+    root: info
+    cn.web: debug
+  file: blog-web-log/access.log
+spring:
+  application:
+    name: blog-web-center
+  mvc:
+    servlet:
+      load-on-startup: 1
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/blog?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+      username: root
+      password: root
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 60000
+      validation-query: SELECT 'x'
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      #配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      filters: stat
+      #filters: stat,wall,log4j
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    joda-date-time-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    
+#zipkin
+  zipkin:
+    base-url: http://127.0.0.1:9411
+#redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 
+    jedis:  
+        pool:  
+          #最大连接数  
+          max-active: 8  
+          #最大阻塞等待时间(负数表示没限制)  
+          max-wait: -1  
+          #最大空闲  
+          max-idle: 8  
+          #最小空闲  
+          min-idle: 0  
+      #连接超时时间  
+    timeout: 10000   
+pagehelper:
+  reasonable: true
+#mybatis
+mybatis: 
+  mapper-locations: classpath:/mapper/*
+  configuration:
+    mapUnderscoreToCamelCase: true
+#注册到服务中心    
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    instance-id: ${spring.application.name}:${random.int}
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5
+    prefer-ip-address: false
+  client:
+  #表示eureka client间隔多久去拉取服务注册信息，默认为30秒，对于api-gateway，如果要迅速获取服务注册状态，可以缩小该值，比如5秒
+    registry-fetch-interval-seconds: 5
+    fetchRegistry: true
+    serviceUrl: 
+      defaultZone: http://test:123@127.0.0.1:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always  
