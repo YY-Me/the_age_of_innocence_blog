@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cn.blog</groupId>
+    <version>2.0</version>
+	<artifactId>blog-commons</artifactId>
+
+	<properties>
+		<fastjson.version>1.2.47</fastjson.version>
+		<mybatis.version>1.3.2</mybatis.version>
+		<druid.version>1.1.9</druid.version>
+		<pagehelper.version>1.2.3</pagehelper.version>
+		<commons-collections>4.1</commons-collections>
+		<commons.lang3>3.7</commons.lang3>
+		<log4j>1.2.17</log4j>
+		<jwt.version>0.9.0</jwt.version>
+		<monitor.version>2.0.1-SNAPSHOT</monitor.version>
+		<swagger.version>2.8.0</swagger.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<security-oauth2.version>2.3.2.RELEASE</security-oauth2.version>
+		<spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+		</dependency>
+		<!-- alibaba fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+		<!-- 工具包 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+            <version>${commons.lang3}</version>
+		</dependency>
+		<!-- 工具包 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>${commons-collections}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>${security-oauth2.version}</version>
+		</dependency>
+	</dependencies>
+	
+	
+	   <!-- mvn assembly:assembly -->
+	   <!-- mvn install:install-file -Dfile=C:\Users\An-Il\git\triedblog\blog-commons\target\blog-commons-2.0.jar -DgroupId=cn.blog -DartifactId=blog-commons -Dversion=2.0 -Dpackaging=jar -->
+    <build>
+        <plugins>  
+            <plugin>
+              <artifactId>maven-assembly-plugin</artifactId>  
+                <configuration>  
+                    <archive>  
+                        <manifest>  
+                            <mainClass></mainClass>  
+                        </manifest>  
+                    </archive>  
+                    <descriptorRefs>  
+                        <descriptorRef>jar-with-dependencies</descriptorRef>  
+                    </descriptorRefs>  
+                </configuration> 
+            </plugin> 
+        </plugins>
+    </build>
+	
+</project>
