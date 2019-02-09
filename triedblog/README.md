@@ -1,17 +1,15 @@
 # triedblog
 
 #### 项目介绍
-triedblog
+博客后台代码
 
 #### 软件架构
-软件架构说明
+springboot
 
 
 #### 安装教程
 
-1. xxxx
-2. xxxx
-3. xxxx
+1. 依次启动注册中心、路由、、、、、、、，配置中心-TODO
 
 #### 使用说明
 
