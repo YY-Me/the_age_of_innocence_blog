@@ -3,7 +3,7 @@ layui.define(['layer', 'form'], function(exports) {
 		form = layui.form,
 		layer = layui.layer;
 	var common = {
-		IP: "http://www.bblog.vip",
+		IP: "https://www.bblog.vip",
 		layer: layer,
 		$: $,
 		form: form,

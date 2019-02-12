@@ -41,6 +41,10 @@ body {
       color: #F75733;
       cursor: pointer; }
 
+.txtScroll-top .infoList li {
+  height: 24px;
+  line-height: 24px; }
+
 .mycontent .content-left .infomation p {
   color: #F75733;
   line-height: 30px;

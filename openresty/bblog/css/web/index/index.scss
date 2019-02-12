@@ -2,6 +2,7 @@
 body {
     padding-top: 0;
 }
+
 .myheader {
     .layui-container {
         .layui-nav {
@@ -16,6 +17,7 @@ body {
         }
     }
 }
+
 //首页导航栏顶部
 .is_top_true {
     background: none;
@@ -29,6 +31,7 @@ body {
         }
     }
 }
+
 //大图
 .scorllimgs {
     width: 100%;
@@ -36,11 +39,12 @@ body {
     opacity: .9;
     overflow: hidden;
     position: relative;
-    img{
+    img {
         width: 100%;
         position: relative;
     }
 }
+
 //每日语录
 .quoteoftheday {
     font-size: 13px;
@@ -65,17 +69,23 @@ body {
         }
     }
 }
+
+.txtScroll-top .infoList li {
+    height: 24px;
+    line-height: 24px;
+}
+
 //首页左侧文章列表
 .mycontent {
     .content-left {
-        .infomation{
-            p{
+        .infomation {
+            p {
                 color: #F75733;
                 line-height: 30px;
                 margin-bottom: 5px;
                 text-align: center;
                 letter-spacing: 2px;
-                i{
+                i {
                     font-size: 12px;
                     color: #F75733;
                     line-height: 30px;
@@ -130,18 +140,18 @@ body {
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
-                            font-weight: bold;
+                    font-weight: bold;
                     &:hover {
                         margin-left: 6px;
-                        a{
+                        a {
                             color: #F75733;
                         }
                     }
                 }
-                .article_lable_show{
+                .article_lable_show {
                     box-sizing: border-box;
                     margin-left: 45px;
-                    span{
+                    span {
                         color: #FFFFFF;
                         font-size: 12px;
                         padding: 2px 4px;
@@ -163,7 +173,7 @@ body {
                             border-radius: 2px;
                         }
                     }
-                    p.post-desc-txt{
+                    p.post-desc-txt {
                         line-height: 22px;
                     }
                 }
@@ -245,7 +255,7 @@ body {
                             b {
                                 display: block;
                             }
-                            b.txt{
+                            b.txt {
                                 font-size: 12px;
                                 font-weight: normal;
                             }
@@ -267,7 +277,6 @@ body {
         }
     }
 }
-
 
 //分页
 ul.pagination {
@@ -309,21 +318,25 @@ ul.pagination {
 .layadmin-tips {
     text-align: center;
 }
+
 .layadmin-tips i.layui-icon-face-surprised {
     display: inline-block;
     font-size: 100px;
     color: #82301D;
 }
+
 .layadmin-tips .layui-text {
     width: 60%;
     margin: 20px auto;
     border-top: 5px solid #82301D;
     font-size: 16px;
 }
+
 .layadmin-tips a {
     line-height: 40px;
     color: #82301D;
 }
+
 @media (min-width: 768px) {
     .myheader {
         .layui-container {
@@ -379,9 +392,10 @@ ul.pagination {
         height: 350px;
     }
 }
+
 @media (min-width: 1200px) {
     .scorllimgs {
-        img{
+        img {
             top: -30%;
         }
     }

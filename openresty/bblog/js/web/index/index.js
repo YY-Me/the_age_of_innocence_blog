@@ -34,8 +34,9 @@ var quotecontents = [
 layui.config({
 	base: '../js/web/' //静态资源所在路径
 }).extend({
-	common: '/common' //公共模块
-}).use(['common'], function() {
+	common: 'common', //公共模块
+	superSlide: 'superSlide/superSlide'
+}).use(['common', 'superSlide'], function() {
 	var common = layui.common,
 		$ = common.$;
 	var index = {
@@ -43,6 +44,14 @@ layui.config({
 			index.bindEvent();
 			index.initQuotecontent();
 			index.initTitle();
+			console.log($)
+			$(".txtScroll-top").slide({
+				mainCell: ".bd ul",
+				autoPage: true,
+				effect: "top",
+				autoPlay: true,
+				delayTime: 500
+			});
 		},
 		bindEvent: function() {
 			//showmusic
