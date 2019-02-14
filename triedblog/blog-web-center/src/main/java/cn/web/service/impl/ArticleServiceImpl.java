@@ -1,6 +1,7 @@
 package cn.web.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -178,26 +179,31 @@ public class ArticleServiceImpl implements ArticleService {
 	 */
 	@Override
 	@Cacheable(value = "blogWebCenter", key = "#root.methodName")
-	public List<BlogArticleClassifyLable> blogArticleClassifyLable() {
-		List<BlogArticleClassifyLable> result = new ArrayList<>();
+	public HashMap<String, BlogArticleClassifyLable> blogArticleClassifyLable() {
+		HashMap<String, BlogArticleClassifyLable> map = new HashMap<>(5);
 		// 分类数、标签数
+		map.put("label", new BlogArticleClassifyLable("标签", 0));
+		map.put("classify", new BlogArticleClassifyLable("分类", 0));
 		List<BlogArticleClassifyLable> list = articleMapper.blogArticleClassifyLable();
 		for (BlogArticleClassifyLable b : list) {
-			b.setName(b.getName().equals("0") ? "标签" : "分类");
-			result.add(b);
+			if (b.getName().equals("0")) {
+				map.put("label", b);
+			} else {
+				map.put("classify", b);
+			}
 		}
 		// 帖子数
 		BlogArticleClassifyLable blogArticleClassifyLable = articleMapper.blogNum();
 		blogArticleClassifyLable.setName("文章");
-		result.add(blogArticleClassifyLable);
+		map.put("article", blogArticleClassifyLable);
 		//访客数
 		Long qqCount = qqUserMapper.countByExample(null);
-		result.add(new BlogArticleClassifyLable("访客", qqCount.intValue()));
+		map.put("guest", new BlogArticleClassifyLable("访客", qqCount.intValue()));
 		//留言数
 		Long leaveCount = blogLeaveMsgMapper.countByExample(null);
-		result.add(new BlogArticleClassifyLable("留言", leaveCount.intValue()));
+		map.put("leave", new BlogArticleClassifyLable("留言", leaveCount.intValue()));
 		//TODO:友站数
-		return result;
+		return map;
 	}
 
 	/**

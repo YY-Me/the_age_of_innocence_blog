@@ -1,5 +1,6 @@
 package cn.web.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.github.pagehelper.PageInfo;
@@ -23,7 +24,7 @@ public interface ArticleService {
 
 	List<BlogArticleByClassify> selectByClassify();
 
-	List<BlogArticleClassifyLable> blogArticleClassifyLable();
+	HashMap<String, BlogArticleClassifyLable> blogArticleClassifyLable();
 
 	List<BlogArticleByLabels> blogArticleLables();
 

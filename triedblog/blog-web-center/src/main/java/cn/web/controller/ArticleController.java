@@ -1,5 +1,6 @@
 package cn.web.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import cn.commons.common.PublicResultJosn;
 import cn.web.dto.BlogArticleByClassify;
 import cn.web.dto.BlogArticleByLabels;
 import cn.web.dto.BlogArticleByTime;
+import cn.web.dto.BlogArticleClassifyLable;
 import cn.web.dto.BlogArticleSelect;
 import cn.web.entity.BlogArticle;
 import cn.web.service.ArticleService;
@@ -66,7 +68,7 @@ public class ArticleController {
 
 	@GetMapping("/blogArticleClassifyLable")
 	@ApiOperation(value = "查询帖子数、分类数、标签数、访客数、留言数、友站数")
-	public Object blogArticleClassifyLable() {
+	public HashMap<String, BlogArticleClassifyLable> blogArticleClassifyLable() {
 		return articleService.blogArticleClassifyLable();
 	}
 
