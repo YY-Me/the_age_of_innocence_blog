@@ -2,7 +2,7 @@ layui.define(['element','layer'], function(exports) {
 	var $ = layui.$,
 		layer = layui.layer;
 	var common = {
-		IP: "http://www.bblog.vip",
+		IP: "http://127.0.0.1",
 		p: 0,
 		t: 0,
 		layer: layer,

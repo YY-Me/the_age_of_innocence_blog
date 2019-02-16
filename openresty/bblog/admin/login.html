@@ -137,12 +137,12 @@
 					var access_token = localStorage.getItem("access_token");
 					if(access_token != null && access_token.trim().length != 0) {
 						$.ajax({
-							type: 'GET',
+							type: 'POST',
 							headers: {
 								'Authorization': localStorage.getItem("access_token") == null ? "" : "Bearer " + localStorage.getItem("access_token")
 							},
 							async: false,
-							url: common.IP + '/api/blog-oauth2/get_user_info',
+							url: common.IP + '/api/blog-oauth2/currentUser',
 							success: function(data) {
 								parent.window.location.href = 'index.html';
 							},
