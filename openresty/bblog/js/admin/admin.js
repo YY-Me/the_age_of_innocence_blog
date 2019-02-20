@@ -184,7 +184,7 @@ layui.config({
 			});
 		},
 		showUserInfo: function() {
-			common.ajaxForm(common.IP + '/api/blog-oauth2/currentUser', {}, function(result, status, xhr) {
+			common.ajaxJson(common.IP + '/api/blog-oauth2/currentUser', {}, function(result, status, xhr) {
 				var data = result;
 				$('#nickname').html(data.nickname)
 				sessionStorage.setItem("username", data.username)

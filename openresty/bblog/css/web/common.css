@@ -75,6 +75,14 @@ body {
     .myheader .layui-container > div.right .layui-nav .layui-nav-item {
       display: inline-block; }
 
+.my-searching {
+  padding-left: 20px; }
+
+.my-layui-input {
+  height: 30px;
+  line-height: 30px;
+  box-sizing: border-box; }
+
 .is_top_false {
   background: #EC8A70;
   background: -webkit-gradient(linear, 0 0, 0 bottom, from(#fff), to(#ECECEC));

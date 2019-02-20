@@ -130,20 +130,27 @@
 		<div class="content">
 			<!-- 每日语录 -->
 			<div class="layui-container quoteoftheday layui-anim layui-anim-fadein">
-				<div class="txtScroll-top">
-					<div class="bd">
-						<ul class="infoList">
-							<li>
-								<span class="quotetitle layui-unselect">每日语录：</span>
-								<i id="quoterefresh" class="layui-icon layui-icon-face-smile layui-unselect"></i>
-								<a class="quotecontent" id="quotecontent">滴答~欢迎来到纯真年代个人博</a>
-							</li>
-							<li>
-								<span class="quotetitle layui-unselect">项目源码：</span>
-								<i id="quoterefresh" class="layui-icon layui-icon-share layui-unselect"></i>
-								<a target="_blank" href="https://gitee.com/yy1122/the_age_of_innocence_blog" class="quotecontent">前后台源码都已经上传</a>
-							</li>
-						</ul>
+				<div class="layui-row">
+					<div class="layui-col-md8 layui-col-sm8 layui-col-xs12">
+						<div class="txtScroll-top">
+							<div class="bd">
+								<ul class="infoList">
+									<li>
+										<span class="quotetitle layui-unselect">每日语录：</span>
+										<i id="quoterefresh" class="layui-icon layui-icon-face-smile layui-unselect"></i>
+										<a class="quotecontent" id="quotecontent">滴答~欢迎来到纯真年代个人博</a>
+									</li>
+									<li>
+										<span class="quotetitle layui-unselect">项目源码：</span>
+										<i id="quoterefresh" class="layui-icon layui-icon-share layui-unselect"></i>
+										<a target="_blank" href="https://gitee.com/yy1122/the_age_of_innocence_blog" class="quotecontent">前后台源码都已经上传</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="layui-col-md4 layui-col-sm4 layui-col-xs12 my-searching">
+						<input type="text" name="title" required  lay-verify="required" placeholder="请输入搜索内容" autocomplete="off" class="layui-input my-layui-input">
 					</div>
 				</div>
 			</div>
