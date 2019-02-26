@@ -256,6 +256,7 @@ layui.config({
 		init: function() {
 			article_update.initArticleData();
 			article_update.initUpload();
+			article_update.initSubmit();
 		},
 		initArticleData: function() {
 			var id = common.getUrlParam("id")

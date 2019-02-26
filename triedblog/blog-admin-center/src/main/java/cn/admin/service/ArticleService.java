@@ -7,6 +7,7 @@ import cn.commons.common.LayuiTableResult;
 import cn.commons.common.PublicResultJosn;
 
 public interface ArticleService {
+
 	PublicResultJosn add(BlogArticleAdd blog);
 
 	PublicResultJosn delete(List<String> bids);

@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * @ClassName: CacheRemove.java
  * @Description: TODO
  * 
- * @author: 余勇
+ * @author: yuyong
  * @version: V1.0  
  * @Date: 2018年9月1日 上午10:58:37
  */
@@ -20,8 +20,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CacheRemove {
 
-    String value();
+	String value();
 
-    String[] key();
+	String[] key();
 
 }
