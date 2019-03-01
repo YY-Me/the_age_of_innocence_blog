@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +24,7 @@ import cn.web.entity.BlogQQUser;
 import cn.web.service.BlogQQUserService;
 
 @Service("qqLoginServiceImpl")
+@Configuration
 public class QQLoginServiceImpl extends DefaultLoginServiceImpl {
 
 	@Autowired
@@ -42,9 +44,9 @@ public class QQLoginServiceImpl extends DefaultLoginServiceImpl {
 	private static final String USER_INFO_URL = "https://graph.qq.com/user/get_user_info?access_token=%s&oauth_consumer_key=%s&openid=%s";
 
 	// 下面的属性可以通过配置读取
-	private static final String CALLBACK_URL = "http://www.bblog.vip/api/blog-web/oauth2/qqCode"; // QQ 在登陆成功后回调的 URL，这个
-																									// URL
-																									// 必须在 QQ
+	@Value("${oauth2.qq.callback_url}")
+	private static String CALLBACK_URL; // QQ 在登陆成功后回调的 URL，这个
+										// 必须在 QQ
 	@Value("${oauth2.qq.api_key}") // 互联里填写过
 	private static String API_KEY; // QQ 互联应用管理中心的 APP ID
 

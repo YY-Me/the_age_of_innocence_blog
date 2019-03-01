@@ -35,7 +35,7 @@ public class QQLoginController {
 	private RedisUtil redisUtil;
 
 	/**
-	 * 返回登录地址，前台调用即可
+	 * 引导用户跳转到QQ互联登录地址，前台调用即可
 	 * 
 	 * @return
 	 * @throws IOException
