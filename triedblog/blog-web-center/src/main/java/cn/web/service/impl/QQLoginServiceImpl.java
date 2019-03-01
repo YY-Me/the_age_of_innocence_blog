@@ -10,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +23,6 @@ import cn.web.entity.BlogQQUser;
 import cn.web.service.BlogQQUserService;
 
 @Service("qqLoginServiceImpl")
-@Configuration
 public class QQLoginServiceImpl extends DefaultLoginServiceImpl {
 
 	@Autowired
@@ -45,16 +43,16 @@ public class QQLoginServiceImpl extends DefaultLoginServiceImpl {
 
 	// 下面的属性可以通过配置读取
 	@Value("${oauth2.qq.callback_url}")
-	private static String CALLBACK_URL; // QQ 在登陆成功后回调的 URL，这个
-										// 必须在 QQ
+	private String CALLBACK_URL; // QQ 在登陆成功后回调的 URL，这个
+									// 必须在 QQ
 	@Value("${oauth2.qq.api_key}") // 互联里填写过
-	private static String API_KEY; // QQ 互联应用管理中心的 APP ID
+	private String API_KEY; // QQ 互联应用管理中心的 APP ID
 
 	@Value("${oauth2.qq.api_secret}")
-	private static String API_SECRET; // QQ 互联应用管理中心的 APP Key
+	private String API_SECRET; // QQ 互联应用管理中心的 APP Key
 
 	@Value("${oauth2.qq.scope}")
-	private static String SCOPE; // QQ 互联的 API 接口，访问用户资料
+	private String SCOPE; // QQ 互联的 API 接口，访问用户资料
 
 	@Override
 	public String getAuthorizationUrl() {
