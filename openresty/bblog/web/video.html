@@ -7,6 +7,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="../plugins/layui/css/layui.css" />
+		<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+		<!--[if lt IE 8]>
+		<script type="text/javascript" src="plugins/ace/js/buttons.html5.min.js" ></script>
+		<script type="text/javascript" src="plugins/ace/js/respond.min.js"></script>
+		<![endif]-->
 		<style>
 			* {
 				padding: 0;
@@ -53,7 +58,7 @@
 						</div>
 					</form>
 				</div>
-				<iframe id="video" height="400px" width="100%" allowfullscreen="true" allowtransparency="true" src="http://yun.baiyug.cn/vip/index.php?url=https%3A%2F%2Fwww.iqiyi.com%2Fv_19rr7pi4k4.html"></iframe>
+				<iframe id="video" height="460px" width="100%" allowfullscreen="true" allowtransparency="true" src="https://jx.618g.com/index.php?url=https%3A%2F%2Fwww.iqiyi.com%2Fv_19rr7pi4k4.html"></iframe>
 			</div>
 			<div class="all_video">
 				<a href="http://www.iqiyi.com/" target="view_window" title="爱奇艺视频"><img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3648390168,1713673067&fm=58&s=6BC28852DD305C0354F4835E02001073&bpow=121&bpoh=75" title="爱奇艺视频" alt="爱奇艺视频"></a>
@@ -79,7 +84,7 @@
 				var form = layui.form,
 					$ = layui.jquery;
 				var obj = {
-					path: 'http://app.baiyug.cn:2019/vip/?url=',
+					path: 'https://jx.618g.com/index.php?url=',
 					init: function() {
 						var url = $("#url").val();
 						$('#video').prop('src', obj.path + url);
