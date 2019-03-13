@@ -1,4 +1,4 @@
-layui.define(['element','layer'], function(exports) {
+layui.define(['element', 'layer'], function(exports) {
 	var $ = layui.$,
 		layer = layui.layer;
 	var common = {
@@ -22,6 +22,14 @@ layui.define(['element','layer'], function(exports) {
 			common.txtshow();
 		},
 		bindEvent: function() {
+			//QQ登录
+			//onclick="return parent.location.href='/api/blog-web/oauth2/qqLogin'"
+			$("a[action='qq_login']").on("click", function() {
+				layer.open({
+					type: 2,
+					content: ['http://www.baidu.com','no']
+				});
+			});
 			//退出登录
 			$('#login_out').click(function() {
 				common.login_out();

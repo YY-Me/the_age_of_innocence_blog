@@ -19,7 +19,11 @@ layui.define(['layer', 'form'], function(exports) {
 			})
 
 			//ajax出现错误
-			$(document).ajaxError(function() {
+			$(document).ajaxError(function(event,xhr,options,exc)) {
+				console.log(event)
+				console.log(xhr)
+				console.log(options)
+				console.log(exc)
 				setTimeout(function() {
 					layer.closeAll('loading');
 				}, 2000);

@@ -44,7 +44,6 @@ layui.config({
 			index.bindEvent();
 			index.initQuotecontent();
 			index.initTitle();
-			console.log($)
 			$(".txtScroll-top").slide({
 				mainCell: ".bd ul",
 				autoPage: true,

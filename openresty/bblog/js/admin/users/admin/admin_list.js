@@ -165,7 +165,7 @@ layui.config({
 					});
 					adminUser.deleteByUids(ts, uids);
 				}
-			})
+			});
 			//添加按钮事件
 			$('#adduser').on('click', function() {
 				window.location = 'admin_add.html?type=add'
