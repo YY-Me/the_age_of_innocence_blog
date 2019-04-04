@@ -7,6 +7,10 @@ package cn.commons.common;
  * @date 2018年5月4日
  */
 public class LayuiTableResult extends PublicResultJosn {
+
+	/**
+	 * 总条数
+	 */
 	private Long count;
 
 	public Long getCount() {
