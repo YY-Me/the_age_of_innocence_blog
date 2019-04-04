@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title>Storm整合kafka进行数据消费~纯真年代 大数据</title>
+		<title>Logstash简介和简单使用~纯真年代 大数据</title>
 		<meta name="keywords" content="纯真年代，个人博客，大数据，spring，springboot，Hadoop，Spark，Spark Streaming，Kafka，Flume，Nginx，Lua，电脑高清壁纸" />
-		<meta name="description" content="纯真年代+个人博客" />
+		<meta name="description" content="余二六の纯真年代 个人博客" />
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 		<link rel="bookmark" href="/favicon.ico" />
 		<link rel="stylesheet" href="../plugins/viewer/viewer.min.css" />
@@ -49,16 +49,16 @@
 						</svg>
 					</a>
 				</div>
-				<div class="left">
+				<div class="left my-hide-xs">
 					<ul class="layui-nav">
 						<li class="layui-nav-item">
-							<a href="index.html">首页</a>
+							<a href="/index?__hbt=1524650296533">首页</a>
 						</li>
 						<li class="layui-nav-item">
-							<a href="article_list.html">文章归档</a>
+							<a href="/article_list?__hbt=1524650296533">文章归档</a>
 						</li>
 						<li class="layui-nav-item">
-							<a href="line_time.html">那年今日</a>
+							<a href="/line-time?__hbt=1524650296533">那年今日</a>
 						</li>
 						<li class="layui-nav-item">
 							<a href="javascript:;">实验&nbsp;<i class="layui-icon layui-icon-triangle-d"></i><span class="layui-badge-dot"></span></a>
@@ -78,10 +78,10 @@
 							</dl>
 						</li>
 						<li class="layui-nav-item">
-							<a href="leave_msg.html">留言</a>
+							<a href="/leave_msg?__hbt=1524650296533">留言</a>
 						</li>
 						<li class="layui-nav-item">
-							<a href="about.html">关于</a>
+							<a href="/about?__hbt=1524650296533">关于</a>
 						</li>
 					</ul>
 				</div>
@@ -128,35 +128,92 @@
 						<p class="intitle"><b>您现在的位置是：</b>
 							<a href="/index">首页</a>
 							>
-							<a href="#">Storm整合kafka进行数据消费</a>
+							<a href="#">Logstash简介和简单使用</a>
 						</p>
 						<hr class="layui-bg-red">
 						<div class="article_detail" id="article_detail">
-							<h2 class="title" id="article_id" article_id="1542529945218">Storm整合kafka进行数据消费</h2>
+							<h2 class="title" id="article_id" article_id="1542447157643">Logstash简介和简单使用</h2>
 							<!-- 文章的一些基本信息 -->
 							<p>
 								<a title="作者"><i class="layui-icon">&#xe612;</i>纯真年代</a>
-								<a title="发布时间"><i class="layui-icon">&#xe60e;</i>2018-11-18 16:32:25</a>
+								<a title="发布时间"><i class="layui-icon">&#xe60e;</i>2018-11-17 17:32:38</a>
 								<span>
 									<a title="评论量" href="#comment_editor"><i class="layui-icon">&#xe606;</i>0</a>
-									<a title="点击量" href="#comment">共<b>313</b>人围观</a>
+									<a title="点击量" href="#comment">共<b>206</b>人围观</a>
 								</span>
 								<a class="layui-clear"></a>
 							</p>
 							<!-- 文章主题内容 -->
 							<div class="article_content">
-								内容
+								<p><br></p>
+								<blockquote>简介&nbsp;
+									<a href="https://www.elastic.co/cn/products/logstash" target="_blank" style="text-decoration-line: underline; color: rgb(0, 25, 255);">直达车</a>
+								</blockquote>
+								<p>&nbsp; &nbsp; Logstash是一个具有实时流水线功能的开源数据收集引擎，能够同时从多个数据源采集数据，中间可以进行转换数据，然后将将数据标准化输出到我们的“目的地”(kafka,Elasticsearch等等)</p>
+								<p>&nbsp; &nbsp; 默认情况下，Logstash在每个阶段（输入→过滤器→输出）之间使用内存中有界队列来缓冲事件。<br></p>
+								<p><img src="https://triedblog.oss-cn-beijing.aliyuncs.com/web/2018-11-17/logstash.png" style="max-width:100%;"><br></p>
+								<p><img src="https://triedblog.oss-cn-beijing.aliyuncs.com/web/2018-11-17/basic_logstash_pipeline.png" style="max-width:100%;"><br></p>
+								<p><br></p>
+								<div><span style="font-size: medium; font-weight: bold;">INPUT</span></div>
+								<h4>采集各种样式、大小和来源的数据</h4>
+								<p>数据往往以各种各样的形式，或分散或集中地存在于很多系统中。 Logstash 支持
+									<a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html">各种输入选择</a>&nbsp;，可以在同一时间从众多常用来源捕捉事件、能够以连续的流式传输方式，轻松地从您的日志、指标、Web 应用、数据存储以及各种 AWS 服务采集数据。</p>
+								<div><span style="font-size: medium; font-weight: bold;">FILTER</span></div>
+								<h4>实时解析和转换数据</h4>
+								<p>数据从源传输到存储库的过程中，Logstash 过滤器能够解析各个事件，识别已命名的字段以构建结构，并将它们转换成通用格式，以便更轻松、更快速地分析和实现商业价值。</p>
+								<div><span style="font-size: medium; font-weight: bold;">OUTPUT</span></div>
+								<h4>选择存储库，导出数据</h4>
+								<p><br></p>
+								<blockquote>安装</blockquote>
+								<p>安装
+									<a href="https://www.elastic.co/guide/en/logstash/current/installing-logstash.html" target="_blank" style="text-decoration-line: underline; color: rgb(0, 25, 255);">直达车</a>，下载
+									<a href="https://www.elastic.co/cn/downloads/logstash" target="_blank" style="text-decoration-line: underline; color: rgb(0, 25, 255);">直达车</a>
+								</p><pre><code>wget https://artifacts.elastic.co/downloads/logstash/logstash-6.5.0.tar.gz</code></pre>
+								<p>解压就行了&nbsp;&nbsp;<br></p><pre><code>tar -zxvf logstash-6.5.0.tar.gz -C /root/app</code></pre>
+								<p><br></p>
+								<blockquote>案例1，控制台输入数据到输出</blockquote>
+								<p>控制台输入=&gt;控制台输出，官网案例
+									<a href="https://www.elastic.co/guide/en/logstash/current/first-event.html" target="_blank" style="text-decoration-line: underline; color: rgb(0, 25, 255);">直达车</a>
+								</p>
+								<p>启动</p><pre><code>cd logstash-6.5.0<br>bin/logstash -e 'input { stdin { } } output { stdout {} }'</code></pre>
+								<p>也可以通过此命令：bin/logstash -f logstash.conf 启动，配置信息写入conf文件</p>
+								<p>测试如图</p>
+								<p><img src="https://triedblog.oss-cn-beijing.aliyuncs.com/web/2018-11-17/logstash-test.png" style="max-width:100%;"><br></p>
+								<p><br></p>
+								<blockquote>插件使用</blockquote>
+								<p>Logstash执行模型：输入→过滤器→输出，每个阶段都支持许多模式，</p>
+								<p>输入插件
+									<a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html" target="_blank" style="text-decoration-line: underline; color: rgb(0, 25, 255);">直达车</a>
+								</p>
+								<p>转换
+									<a href="https://www.elastic.co/guide/en/logstash/current/filter-plugins.html" target="_blank" style="text-decoration-line: underline; color: rgb(0, 25, 255);">直达车</a>
+								</p>
+								<p>输出
+									<a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html" target="_blank" style="text-decoration-line: underline; color: rgb(0, 25, 255);">直达车</a>
+								</p>
+								<p><br></p>
+								<blockquote>案例2，采集文件信息到kafka</blockquote>
+								<p>输入（
+									<a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-file.html" target="_blank" style="text-decoration-line: underline; color: rgb(0, 25, 255);">file</a>），输出（
+									<a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-kafka.html" target="_blank" style="text-decoration-line: underline; color: rgb(0, 25, 255);">kafka</a>），前提启动kafka</p>
+								<p>vim file_kafka.conf</p><pre><code>input {<br>    file {<br>    path =&gt; "/root/data/logstash.txt"<br>    }<br>}<br><br>output{<br>    kafka {<br>        codec =&gt; json<br>        topic_id =&gt; "storm_kafka_test"<br>        bootstrap_servers =&gt; "localhost:9092"<br>        batch_size =&gt; 1<br>    }<br>}</code></pre>
+								<p>logstash启动</p><pre><code>bin/logstash -f file_kafka.conf</code></pre>
+								<p>启动一个kafka控制台消费者</p><pre><code>kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic storm_kafka_test</code></pre>
+								<p>我们输入内容到logstash.txt，echo "hello" &gt;&gt; logstash.txt</p>
+								<p>结果如下：kafka控制台消费者已经收到消息了</p>
+								<p><img src="https://triedblog.oss-cn-beijing.aliyuncs.com/web/2018-11-17/logstash_kafka_test.png" style="max-width:100%;"><br></p>
+								<p><br></p>
 							</div>
 							<!-- 上一篇，下一篇 -->
 							<div id="nextinfo" class="nextinfo">
 								<p>上一篇：
 
-									<a class="layui-unselect"><i class="layui-icon layui-icon-face-smile" style="font-size: 16px; color: #FF5722;"></i> 没有了哟！</a>
+									<a href="/article_detail/1542469883383">Storm整合redis</a>
 
 								</p>
 								<p>下一篇：
 
-									<a href="/article_detail/1542473021037">Storm整合jdbc</a>
+									<a href="/article_detail/1542079779558">Storm架构及单机、集群部署</a>
 
 								</p>
 							</div>
@@ -282,6 +339,10 @@
 										<span class="layui-bg-gray" style="font-size: 14px;padding:0 4px;border-radius: 2px;">0</span>
 									</a>
 
+									<a class="animated3" href="/label/35" title="ES" style="background-color: #fc78af;">ES
+										<span class="layui-bg-gray" style="font-size: 14px;padding:0 4px;border-radius: 2px;">0</span>
+									</a>
+
 								</div>
 							</div>
 							<!-- 文章分类 -->
@@ -302,25 +363,6 @@
 									<ul>
 
 										<li class="animated8">
-											<a href="/article_detail/1537198865279" title="Hadoop实战-浏览器统计" target="_blank" class="thumbnail-link">
-												<img class="thumbnailside" title="Hadoop实战-浏览器统计" alt="Hadoop实战-浏览器统计" src="https://triedblog.oss-cn-beijing.aliyuncs.com/my/5.jpg" width="46" height="46" style="overflow: hidden;" />
-											</a>
-											<div class="right-box">
-												<h4 class="title">
-									<a href="/article_detail/1537198865279" title="Hadoop实战-浏览器统计">Hadoop实战-浏览器统计</a>
-								</h4>
-												<p class="time">
-													<i class="layui-icon layui-icon-date"></i>
-													<a>2018-09-17 23:41:05</a>
-												</p>
-												<p class="view">
-													<i class="layui-icon layui-icon-read"></i>
-													<a>334</a>
-												</p>
-											</div>
-										</li>
-
-										<li class="animated8">
 											<a href="/article_detail/1542529945218" title="Storm整合kafka进行数据消费" target="_blank" class="thumbnail-link">
 												<img class="thumbnailside" title="Storm整合kafka进行数据消费" alt="Storm整合kafka进行数据消费" src="https://triedblog.oss-cn-beijing.aliyuncs.com/web/2018-11-18/storm-logo.png" width="46" height="46" style="overflow: hidden;" />
 											</a>
@@ -334,26 +376,26 @@
 												</p>
 												<p class="view">
 													<i class="layui-icon layui-icon-read"></i>
-													<a>312</a>
+													<a>679</a>
 												</p>
 											</div>
 										</li>
 
 										<li class="animated8">
-											<a href="/article_detail/1536994242063" title="初识Hadoop" target="_blank" class="thumbnail-link">
-												<img class="thumbnailside" title="初识Hadoop" alt="初识Hadoop" src="https://triedblog.oss-cn-beijing.aliyuncs.com/web/2018-09-15/hadoop-logo.png" width="46" height="46" style="overflow: hidden;" />
+											<a href="/article_detail/1537198865279" title="Hadoop实战-浏览器统计" target="_blank" class="thumbnail-link">
+												<img class="thumbnailside" title="Hadoop实战-浏览器统计" alt="Hadoop实战-浏览器统计" src="https://triedblog.oss-cn-beijing.aliyuncs.com/my/5.jpg" width="46" height="46" style="overflow: hidden;" />
 											</a>
 											<div class="right-box">
 												<h4 class="title">
-									<a href="/article_detail/1536994242063" title="初识Hadoop">初识Hadoop</a>
+									<a href="/article_detail/1537198865279" title="Hadoop实战-浏览器统计">Hadoop实战-浏览器统计</a>
 								</h4>
 												<p class="time">
 													<i class="layui-icon layui-icon-date"></i>
-													<a>2018-09-15 14:50:42</a>
+													<a>2018-09-17 23:41:05</a>
 												</p>
 												<p class="view">
 													<i class="layui-icon layui-icon-read"></i>
-													<a>291</a>
+													<a>424</a>
 												</p>
 											</div>
 										</li>
@@ -372,7 +414,26 @@
 												</p>
 												<p class="view">
 													<i class="layui-icon layui-icon-read"></i>
-													<a>272</a>
+													<a>395</a>
+												</p>
+											</div>
+										</li>
+
+										<li class="animated8">
+											<a href="/article_detail/1536994242063" title="初识Hadoop" target="_blank" class="thumbnail-link">
+												<img class="thumbnailside" title="初识Hadoop" alt="初识Hadoop" src="https://triedblog.oss-cn-beijing.aliyuncs.com/web/2018-09-15/hadoop-logo.png" width="46" height="46" style="overflow: hidden;" />
+											</a>
+											<div class="right-box">
+												<h4 class="title">
+									<a href="/article_detail/1536994242063" title="初识Hadoop">初识Hadoop</a>
+								</h4>
+												<p class="time">
+													<i class="layui-icon layui-icon-date"></i>
+													<a>2018-09-15 14:50:42</a>
+												</p>
+												<p class="view">
+													<i class="layui-icon layui-icon-read"></i>
+													<a>392</a>
 												</p>
 											</div>
 										</li>
@@ -391,7 +452,7 @@
 												</p>
 												<p class="view">
 													<i class="layui-icon layui-icon-read"></i>
-													<a>247</a>
+													<a>321</a>
 												</p>
 											</div>
 										</li>
@@ -410,7 +471,7 @@
 												</p>
 												<p class="view">
 													<i class="layui-icon layui-icon-read"></i>
-													<a>229</a>
+													<a>302</a>
 												</p>
 											</div>
 										</li>
@@ -428,6 +489,18 @@
 												<li>
 													<img title="我的CSDN" alt="我的CSDN" src="https://triedblog.oss-cn-beijing.aliyuncs.com/blog/public-ico/csdn-favicon.ico" style="display: inline-block;max-width: 16px;max-height: 16px;border: none;" />
 													<a title="我的CSDN" target="_blank" href="https://blog.csdn.net/qq_33396608">我的CSDN</a>
+												</li>
+											</div>
+											<div class="layui-col-md6 layui-col-sm6 layui-col-xs6">
+												<li>
+													<img title="SnailClimb" alt="SnailClimb" src="https://triedblog.oss-cn-beijing.aliyuncs.com/blog/public-ico/csdn-favicon.ico" style="display: inline-block;max-width: 16px;max-height: 16px;border: none;" />
+													<a title="SnailClimb" target="_blank" href="https://blog.csdn.net/qq_34337272">SnailClimb在CSDN</a>
+												</li>
+											</div>
+											<div class="layui-col-md6 layui-col-sm6 layui-col-xs6">
+												<li>
+													<img title="【Java学习+面试指南】 一份涵盖大部分Java程序员所需要掌握的核心知识" alt="【Java学习+面试指南】 一份涵盖大部分Java程序员所需要掌握的核心知识" src="https://triedblog.oss-cn-beijing.aliyuncs.com/blog/public-ico/javaguide.png" style="display: inline-block;max-width: 16px;max-height: 16px;border: none;" />
+													<a title="【Java学习+面试指南】 一份涵盖大部分Java程序员所需要掌握的核心知识" target="_blank" href="https://github.com/Snailclimb/JavaGuide">JavaGuide</a>
 												</li>
 											</div>
 											<div class="layui-col-md6 layui-col-sm6 layui-col-xs6">
@@ -506,7 +579,7 @@
 		<!-- 底部信息 -->
 		<footer class="footer">
 			<div class="footavatar">
-				<img src="../images/my/login.jpg" class="footphoto">
+				<img src="https://images.gitee.com/uploads/21/1559021_yy1122.png!avatar100" class="footphoto">
 				<ul class="footinfo">
 					<p class="fname">
 						<a href="javascript:;">纯真年代</a>
@@ -521,33 +594,33 @@
 				<ul>
 
 					<li>
-						<img src="https://thirdqq.qlogo.cn/qqapp/101486279/E36C6AEF4E14E52299DB835AECEB505B/40" alt="精♬彩♬人♬生" title="精♬彩♬人♬生" />
+						<img src="https://thirdqq.qlogo.cn/g?b=oidb&k=NybESGPfsPWJ3ib1fuEBSEw&s=40" alt="Amanda丶" title="Amanda丶" />
+						<div class="recent_nickname">Amanda丶</div>
+					</li>
+
+					<li>
+						<img src="https://thirdqq.qlogo.cn/g?b=oidb&k=rVvtgxNp4qTTmR90kPI5hA&s=40" alt="沧海大叔" title="沧海大叔" />
+						<div class="recent_nickname">沧海大叔</div>
+					</li>
+
+					<li>
+						<img src="https://thirdqq.qlogo.cn/g?b=oidb&k=QUhicFJO1HJKeUyT3NphqibQ&s=40" alt="精♬彩♬人♬生" title="精♬彩♬人♬生" />
 						<div class="recent_nickname">精♬彩♬人♬生</div>
 					</li>
 
 					<li>
-						<img src="https://thirdqq.qlogo.cn/qqapp/101486279/398ECB3CDB2E9B0B528E2AABD596998F/40" alt="越狱的围巾" title="越狱的围巾" />
-						<div class="recent_nickname">越狱的围巾</div>
+						<img src="https://thirdqq.qlogo.cn/g?b=oidb&k=N5akKCFlM6C7Et08uZdTqg&s=40" alt="KeHen" title="KeHen" />
+						<div class="recent_nickname">KeHen</div>
 					</li>
 
 					<li>
-						<img src="https://thirdqq.qlogo.cn/qqapp/101486279/2661CAC429EFA19FA0D7CECC3C319430/40" alt="null" title="null" />
-						<div class="recent_nickname">null</div>
+						<img src="https://thirdqq.qlogo.cn/g?b=oidb&k=bP4zn3q3D2VgFYSYFlb9aQ&s=40" alt="福报" title="福报" />
+						<div class="recent_nickname">福报</div>
 					</li>
 
 					<li>
-						<img src="https://thirdqq.qlogo.cn/qqapp/101486279/A6EE37FF39F685E6FA49ED9F4822ABC1/40" alt="dawa大娃bigbaby" title="dawa大娃bigbaby" />
-						<div class="recent_nickname">dawa大娃bigbaby</div>
-					</li>
-
-					<li>
-						<img src="https://thirdqq.qlogo.cn/qqapp/101486279/360CED97F03A13E731DA7CEAD4E38267/40" alt="★奕星☆殇情★" title="★奕星☆殇情★" />
-						<div class="recent_nickname">★奕星☆殇情★</div>
-					</li>
-
-					<li>
-						<img src="https://thirdqq.qlogo.cn/qqapp/101486279/D949A9CFB2A55F6A2FA42B594BE5E195/40" alt="Mute" title="Mute" />
-						<div class="recent_nickname">Mute</div>
+						<img src="https://thirdqq.qlogo.cn/g?b=oidb&k=fWtdQhT1K2Vl3AU0beZibVQ&s=40" alt="樱花唱" title="樱花唱" />
+						<div class="recent_nickname">樱花唱</div>
 					</li>
 
 				</ul>
@@ -556,7 +629,7 @@
 			<div class="info">
 				<p>承认现实生活中的不足之处，并通过自己的努力去弥补这种不足</p>
 				<span>
-								<a>© 2018 纯真年代-博客</a>
+								<a>© 2019 纯真年代-博客</a>
 							</span>
 				<span>
 										<a href="http://www.miitbeian.gov.cn" target="_blank">渝ICP备17007479号-2</a>
@@ -572,8 +645,8 @@
 		</ul>
 	</body>
 	<script type="text/javascript" src="../plugins/layui/layui.js"></script>
-	<script type="text/javascript" src="../js/web/article_detail/article_detail.js" ></script>
-	<script type="text/javascript" src="../plugins/viewer/viewer.min.js" ></script>
+	<script type="text/javascript" src="../js/web/article_detail/article_detail.js?v=1"></script>
+	<script type="text/javascript" src="../plugins/viewer/viewer.min.js"></script>
 	<script>
 		var viewer = new Viewer(document.getElementById('article_detail'));
 	</script>
