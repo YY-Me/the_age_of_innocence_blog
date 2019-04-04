@@ -27,7 +27,7 @@ layui.define(['element', 'layer'], function(exports) {
 			$("a[action='qq_login']").on("click", function() {
 				layer.open({
 					type: 2,
-					content: ['http://www.baidu.com','no']
+					content: ['http://www.baidu.com', 'no']
 				});
 			});
 			//退出登录
@@ -167,31 +167,27 @@ layui.define(['element', 'layer'], function(exports) {
 					layer.load();
 				},
 				error: function(xhr, textStatus, errorThrown) {
-					//按钮禁用
-					$(".layui-submit").attr('disabled', false);
-					var msg = "链接超时";
-					if(xhr.responseText == null || xhr.responseText == "") {
-						msg = "链接超时";
-					} else {
-						var response = JSON.parse(xhr.responseText);
-						msg = response.message;
-						if(response.code == 401) {
-							localStorage.removeItem("token");
-						}
-					}
-					layer.msg(msg, {
-						icon: 2,
-						time: 2000
-					});
+					common.ajaxError(xhr, textStatus, errorThrown);
 				}
 			});
 		},
-		ajaxForm: function(url, data, successFun, errorFun, async, contentType) {
-			common.ajaxJson(url, data, successFun, errorFun, async, 'application/x-www-form-urlencoded');
+		ajaxForm: function(url, data, type, successFun, errorFun, async, contentType) {
+			if(type != undefined && $.isFunction(type)) {
+				successFun = type;
+				type = "GET";
+			}
+			common.ajaxJson(url, data, type, successFun, errorFun, async, 'application/x-www-form-urlencoded');
 		},
-		ajaxJson: function(url, data, successFun, errorFun, async, contentType) {
+		ajaxJson: function(url, data, type, successFun, errorFun, async, contentType) {
+			if(type != undefined && $.isFunction(type)) {
+				successFun = type;
+				type = null;
+			}
 			if(async == undefined || async == null) {
 				async = true;
+			}
+			if(type == undefined || type == null) {
+				type = 'POST';
 			}
 			if(contentType == undefined || contentType == null || contentType.indexOf('application/json') == 0) {
 				contentType = 'application/json;charset=utf-8';
@@ -201,35 +197,75 @@ layui.define(['element', 'layer'], function(exports) {
 			$.ajax({
 				url: url,
 				async: async,
+				type: type,
 				contentType: contentType,
 				data: data,
 				success: function(result, status, xhr) {
+					layer.closeAll('loading');
 					if(successFun != undefined && $.isFunction(successFun)) {
 						successFun(result, status, xhr);
 					}
 				},
 				error: function(xhr, textStatus, errorThrown) {
-					//按钮禁用
-					$(".layui-submit").attr('disabled', false);
-					var msg = "链接超时";
-					if(xhr.responseText == null || xhr.responseText == "") {
-						msg = "链接超时";
-					} else {
-						var response = JSON.parse(xhr.responseText);
-						msg = response.message;
-						if(response.code == 401) {
-							localStorage.removeItem("token");
-						}
-					}
-					layer.msg(msg, {
-						icon: 2,
-						time: 2000
-					});
+					common.ajaxError(xhr, textStatus, errorThrown);
 					if(errorFun != undefined && $.isFunction(errorFun)) {
 						errorFun(xhr, textStatus, errorThrown);
 					}
 				}
 			});
+		},
+		ajaxError: function(xhr, textStatus, errorThrown) {
+			console.log(xhr)
+			console.log(textStatus)
+			console.log(errorThrown)
+			layer.closeAll('loading');
+			$("button[lay-filter='formDemo']").attr('disabled', false);
+			var status = xhr.status; // http status
+			var msg = xhr.responseText;
+			var message = "";
+			if(msg != undefined && msg != "") {
+				console.log(msg)
+				try {
+					var response = JSON.parse(msg);
+					var exception = response.message;
+					var exception1 = response.error_description;
+					if(exception) {
+						message = exception;
+					} else if(exception1) {
+						message = exception1;
+					} else {
+						message = response.message;
+					}
+				} catch(e) {
+					message = xhr.statusText;
+				}
+			}
+			if(xhr.readyState == 0) {
+				message = xhr.statusText;
+			}
+			var flag = typeof(layer) == "undefined";
+			if(status == 400) {
+				message = message || "不合法参数";
+			} else if(status == 401) {
+				console.log('access_token过期');
+				message = "登录信息过期";
+				sessionStorage.clear();
+				localStorage.clear();
+			} else if(status == 403) {
+				message = "未授权";
+			} else if(status == 404) {
+				message = "路径未找到";
+			} else if(status == 500) {
+				message = '系统错误：' + message + '，请刷新页面，或者联系管理员';
+			}
+			if(flag) {
+				alert(message);
+			} else {
+				layer.msg(message, {
+					icon: 2,
+					time: 1300
+				});
+			}
 		},
 		initUserData: function() {
 			var nickname = decodeURI(common.getCookie("nickname"));
@@ -339,6 +375,32 @@ layui.define(['element', 'layer'], function(exports) {
 			var date = new Date();
 			var strDate = date.getDate();
 			return strDate;
+		},
+		loadArticleMenu: function() {
+			//加载菜单目录
+			var menuHtml = '<ul class="site-dir layui-layer-wrap layui-unselect" style="display: block;">';
+			$.each($("blockquote"), function(index, obj) {
+				var id = "blockquote" + index;
+				$(obj).attr("id", id);
+				menuHtml += '<li><a href="#' + id + '"><cite>' + $(obj).html() + '</cite></a></li>';
+			});
+			menuHtml += '</ul>';
+			layer.open({
+				type: 1,
+				title: '目录',
+				skin: 'layui-layer-dir',
+				shade: false,
+				offset: 'r',
+				area: '170px', //高
+				content: menuHtml
+			});
+			$.each($(".site-dir li"), function(index, obj) {
+				$(obj).on("click", function() {
+					$(".site-dir li").removeClass("layui-this");
+					$(obj).addClass("layui-this");
+				});
+			});
+			$(".site-dir li.layui-this").click();
 		}
 	};
 	$(function() {

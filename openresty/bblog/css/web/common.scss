@@ -102,13 +102,37 @@ body {
 }
 
 //搜索框
-.my-searching{
+.my-searching {
     padding-left: 20px;
 }
-.my-layui-input{
+
+.my-layui-input {
     height: 30px;
     line-height: 30px;
     box-sizing: border-box;
+}
+
+//文章目录
+.layui-layer-dir {
+    box-shadow: none !important;
+    border: 1px solid #d2d2d2;
+    margin-left: -15px !important;
+}
+
+.site-dir {
+    padding: 10px;
+    li {
+        line-height: 26px;
+        margin-left: 20px;
+        overflow: visible;
+        list-style-type: disc;
+    }
+    .layui-this {
+        color: #FF5722 !important;
+        a {
+            color: #FF5722 !important;
+        }
+    }
 }
 
 .is_top_false {

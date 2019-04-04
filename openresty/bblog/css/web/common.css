@@ -83,6 +83,23 @@ body {
   line-height: 30px;
   box-sizing: border-box; }
 
+.layui-layer-dir {
+  box-shadow: none !important;
+  border: 1px solid #d2d2d2;
+  margin-left: -15px !important; }
+
+.site-dir {
+  padding: 10px; }
+  .site-dir li {
+    line-height: 26px;
+    margin-left: 20px;
+    overflow: visible;
+    list-style-type: disc; }
+  .site-dir .layui-this {
+    color: #FF5722 !important; }
+    .site-dir .layui-this a {
+      color: #FF5722 !important; }
+
 .is_top_false {
   background: #EC8A70;
   background: -webkit-gradient(linear, 0 0, 0 bottom, from(#fff), to(#ECECEC));

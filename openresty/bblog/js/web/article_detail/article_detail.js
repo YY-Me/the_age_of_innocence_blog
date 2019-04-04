@@ -13,12 +13,13 @@ layui.config({
 		toId: null,
 		parentId: null,
 		init: function() {
+			//加载目录
+			common.loadArticleMenu();
 			article_detail.bindEvent();
 			article_detail.initEditor();
 			$('#article_editor').val("");
 		},
 		bindEvent: function() {
-
 			//提交回复
 			$('.layui-submit').click(function() {
 				//token，cookie验证登录
@@ -30,11 +31,12 @@ layui.config({
 					return;
 				}
 				var data = {};
+				data.articleId = $.trim($('#article_id').attr('article_id'));
 				data.parentId = $.trim(article_detail.parentId);
 				data.toId = $.trim(article_detail.toId);
 				var content = $.trim($('.article_editor').val());
 				if(content.length < 3) {
-					layer.msg('留言内容不能小于3个非空格字符', {
+					layer.msg('回复不能小于3个非空格字符', {
 						icon: 2,
 						time: 2000
 					});
@@ -47,10 +49,10 @@ layui.config({
 				setTimeout(function() {
 					$(".layui-submit").attr('disabled', false);
 				}, 10000);
-				var url = "/api/blog-web/leaveMsg";
+				var url = "/api/blog-web/article_comment";
 				common.ajaxJson(url, data, function(result, status, xhr) {
 					$('#article_editor').val("")
-					layer.msg("留言成功", {
+					layer.msg("评论成功", {
 						icon: 1,
 						time: 1300
 					}, function() {
@@ -79,8 +81,8 @@ layui.config({
 				isAuto: false,
 				done: function(page, next) {
 					var lis = [];
-					$.get('/api/blog-web/article/comment/'+$.trim($('#article_id').attr('article_id'))+'?page=' + page, function(res) {
-						layer.closeAll('loading');
+					var url = '/api/blog-web/article/comment/'+$.trim($('#article_id').attr('article_id'))+'?page=' + page;
+					common.ajaxForm(url,null,function(res, status, xhr){
 						var html = article_detail.pHtml(res.data, false)
 						lis.push(html);
 						next(lis.join(''), page < res.pages);
