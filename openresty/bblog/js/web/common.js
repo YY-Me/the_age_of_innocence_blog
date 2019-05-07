@@ -300,7 +300,7 @@ layui.define(['element', 'layer'], function(exports) {
 							icon: 1,
 							time: 2000
 						});
-						initUserData()
+						common.initUserData();
 					}
 				});
 			});
