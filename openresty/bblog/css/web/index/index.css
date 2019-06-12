@@ -23,9 +23,11 @@ body {
     position: relative; }
 
 .quoteoftheday {
+  max-height: 48px;
+  overflow: hidden;
   font-size: 13px;
   background: #FFFFFF;
-  padding: 6px 10px;
+  padding: 12px 10px;
   border-radius: 2px; }
   .quoteoftheday #quoterefresh {
     font-size: 13px;
@@ -55,6 +57,7 @@ body {
     font-size: 12px;
     color: #F75733;
     line-height: 30px; }
+
 .mycontent .content-left .post-list .post-one {
   margin-bottom: 20px;
   position: relative;
@@ -158,14 +161,17 @@ body {
         .mycontent .content-left .post-list .post-one .post-info .post-info-right > a i,
         .mycontent .content-left .post-list .post-one .post-info .post-info-right > a span {
           font-size: 13px; }
+
 .mycontent .content-left #laypage {
   text-align: center;
   margin: 30px 0; }
+
 .mycontent .content-right > div .grid h3 {
   border-top-left-radius: 1px;
   border-top-right-radius: 1px;
   height: 5px;
   line-height: 5px; }
+
 .mycontent .content-right > div .grid .content {
   padding: 10px 0;
   padding-bottom: 20px; }
@@ -258,25 +264,22 @@ ul.pagination {
       background: none; }
       .myheader .layui-container > div.left .layui-nav .layui-nav-item {
         display: inline-block; }
-
   .scorllimgs {
     height: 300px; }
-
   #laypage .layui-laypage a,
   #laypage .layui-laypage span {
     padding: 0 15px; }
-
   .is_top_true .layui-container .left .layui-nav .layui-this::after {
     background-color: #F3F3F3; }
   .is_top_true .layui-container .left .layui-nav .layui-nav-item > a {
     color: #F3F3F3; }
   .is_top_true .layui-container .left .layui-nav > span {
     background-color: #F3F3F3; } }
+
 @media (min-width: 900px) {
   .scorllimgs {
     height: 350px; } }
+
 @media (min-width: 1200px) {
   .scorllimgs img {
     top: -30%; } }
-
-/*# sourceMappingURL=index.css.map */

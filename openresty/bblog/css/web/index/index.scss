@@ -47,9 +47,11 @@ body {
 
 //每日语录
 .quoteoftheday {
+	max-height: 48px;
+	overflow: hidden;
     font-size: 13px;
     background: #FFFFFF;
-    padding: 6px 10px;
+    padding: 12px 10px;
     border-radius: 2px;
     #quoterefresh {
         font-size: 13px;
