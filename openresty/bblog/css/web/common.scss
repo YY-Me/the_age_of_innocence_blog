@@ -432,6 +432,86 @@ body {
     }
 }
 
+//my-beat
+.my-beat {
+	animation: my-beat 5s infinite ease-in-out;
+	display: inline-block;
+}
+$mypxs: (
+	(trans: -1.5px, rotate: -1.5deg),
+	(trans: -.5px, rotate: -.5deg),
+	(trans: .5px, rotate: .5deg),
+	(trans: 1.5px, rotate: 1.5deg),
+	(trans: 2.5px, rotate: 2.5deg),
+	(trans: -1.5px, rotate: -1.5deg),
+	(trans: -.5px, rotate: -.5deg),
+	(trans: .5px, rotate: .5deg),
+	(trans: 1.5px, rotate: 1.5deg),
+	(trans: 2.5px, rotate: 2.5deg)
+);
+//样式
+@-moz-keyframes my-beat {
+	$i:2;
+	@while $i <= 100 {
+		$translate:map-get(nth($mypxs, round(random() * 9 + 1)), trans);
+		$rotate:map-get(nth($mypxs, round(random() * 9 + 1)), rotate);
+	    #{$i}% {
+	        -webkit-transform: translate(0, $translate) rotate($rotate);
+	        -moz-transform: translate(0, $translate) rotate($rotate);
+	        -ms-transform: translate(0, $translate) rotate($rotate);
+	        -o-transform: translate(0, $translate) rotate($rotate);
+	        transform: translate(0, $translate) rotate($rotate)
+	    }
+	    $i:$i + 2;
+	}
+}
+@-webkit-keyframes my-beat {
+	$i:2;
+	@while $i <= 100 {
+		$translate:map-get(nth($mypxs, round(random() * 9 + 1)), trans);
+		$rotate:map-get(nth($mypxs, round(random() * 9 + 1)), rotate);
+	    #{$i}% {
+	        -webkit-transform: translate(0, $translate) rotate($rotate);
+	        -moz-transform: translate(0, $translate) rotate($rotate);
+	        -ms-transform: translate(0, $translate) rotate($rotate);
+	        -o-transform: translate(0, $translate) rotate($rotate);
+	        transform: translate(0, $translate) rotate($rotate)
+	    }
+	    $i:$i + 2;
+	}
+}
+@-o-keyframes my-beat {
+	$i:2;
+	@while $i <= 100 {
+		$translate:map-get(nth($mypxs, round(random() * 9 + 1)), trans);
+		$rotate:map-get(nth($mypxs, round(random() * 9 + 1)), rotate);
+	    #{$i}% {
+	        -webkit-transform: translate(0, $translate) rotate($rotate);
+	        -moz-transform: translate(0, $translate) rotate($rotate);
+	        -ms-transform: translate(0, $translate) rotate($rotate);
+	        -o-transform: translate(0, $translate) rotate($rotate);
+	        transform: translate(0, $translate) rotate($rotate)
+	    }
+	    $i:$i + 2;
+	}
+}
+@keyframes my-beat {
+	$i:2;
+	@while $i <= 100 {
+		$translate:map-get(nth($mypxs, round(random() * 9 + 1)), trans);
+		$rotate:map-get(nth($mypxs, round(random() * 9 + 1)), rotate);
+	    #{$i}% {
+	        -webkit-transform: translate(0, $translate) rotate($rotate);
+	        -moz-transform: translate(0, $translate) rotate($rotate);
+	        -ms-transform: translate(0, $translate) rotate($rotate);
+	        -o-transform: translate(0, $translate) rotate($rotate);
+	        transform: translate(0, $translate) rotate($rotate)
+	    }
+	    $i:$i + 2;
+	}
+}
+
+
 @media (min-width: 768px) {
     .myheader {
         .layui-container {
