@@ -338,7 +338,7 @@ layui.config({
 					article_data.isvisible = "0";
 				}
 				article_data = JSON.stringify(article_data);
-				article_data.submit(article_data);
+				article_update.submit(article_data);
 				return false;
 			});
 		},

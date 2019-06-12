@@ -160,12 +160,6 @@ layui.define(['element', 'layer'], function(exports) {
 				type: "POST",
 				contentType: "application/json; charset=utf-8",
 				dataType: 'json',
-				headers: {
-					"token": localStorage.getItem("token")
-				},
-				beforeSend: function(xhr) {
-					layer.load();
-				},
 				error: function(xhr, textStatus, errorThrown) {
 					common.ajaxError(xhr, textStatus, errorThrown);
 				}
@@ -200,6 +194,12 @@ layui.define(['element', 'layer'], function(exports) {
 				type: type,
 				contentType: contentType,
 				data: data,
+				headers: {
+					"token": localStorage.getItem("token")
+				},
+				beforeSend: function(xhr) {
+					layer.load();
+				},
 				success: function(result, status, xhr) {
 					layer.closeAll('loading');
 					if(successFun != undefined && $.isFunction(successFun)) {
